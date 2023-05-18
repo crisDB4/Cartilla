@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43'];
+const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46'];
 let numPagina = 0;
 
 /* Cambiar páginas */
@@ -106,6 +106,8 @@ function switchPages(operation) {
         paginaVideo.classList.add('inactive')
         const pagina13Video = document.querySelector('.page13');
         pagina13Video.classList.add('inactive')
+        const pagina45Video = document.querySelector('.page45');
+        pagina45Video.classList.add('inactive')
     }
     console.log(paginas[numPagina]);
     switch (paginas[numPagina]) {
@@ -214,7 +216,12 @@ function switchPages(operation) {
         case '.page43':
             page43();
             break;
-    
+        case '.page44':
+            page44();
+            break;
+        case '.page46':
+            page46();
+            break;
     }
 }
 
@@ -2601,7 +2608,7 @@ function page35() {
     document.querySelector('.video-dani').src = 'https://www.youtube.com/embed/-F7vsaexLIg';
 }
 function page36() {
-    document.querySelector('.video-cancion1').src = 'https://www.youtube.com/embed/upIaPnI1H_4';
+    document.querySelector('.video-cancion1').src = 'https://www.youtube.com/embed/zxBHJZ8swS0';
     document.querySelector('.video-cancion2').src = 'https://www.youtube.com/embed/QdNQ8V-P1k8';
 }
 
@@ -2837,6 +2844,445 @@ function page43() {
                 break;
         }
     })
+    window.addEventListener('keyup', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = false;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = false;
+                break;
+            case 'ArrowUp':
+                break;
+            case 'ArrowDown':
+                break;
+        }
+    })
+}
+
+function page44() {
+    const canvas = document.querySelector('.canvas44');
+    const c = canvas.getContext('2d');
+
+    const gravity = 1.5;
+    class Player {
+        constructor() {
+            this.position = {
+                x:100,
+                y:100
+            };
+            this.velocity = {
+                x: 0,
+                y: 0
+            }
+            this.width = 30;
+            this.height = 30;
+        }
+        draw() {
+            c.fillStyle = 'red'
+            c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+
+        update() {
+            this.draw();
+            this.position.y += this.velocity.y;
+            this.position.x += this.velocity.x;
+
+            if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity;
+            } else this.velocity.y = 0;
+        }
+    }
+
+    class Platform {
+        constructor(x,y,image) {
+            this.position = {
+                x:x,
+                y:y
+            }
+            this.image = image;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    class Pipe {
+        constructor(x,y,image) {
+            this.position = {
+                x,
+                y
+            }
+            this.image = image;
+            this.width = 60;
+            this.height= 60;
+        }
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    const imageBrick = document.createElement('img');
+    imageBrick.src = 'assets/images/brick.png';
+
+    const imageFloor = document.createElement('img');
+    imageFloor.src = 'assets/images/bloque.png';
+
+    const imageQuestion = document.createElement('img');
+    imageQuestion.src = 'assets/images/question-block.png'
+
+    const imagePipe = document.createElement('img');
+    imagePipe.src = 'assets/images/small-pipe.png'
+
+    const player = new Player();
+    const platforms = [new Platform(0,370,imageFloor),
+        new Platform(50,370,imageFloor),
+        new Platform(100,370,imageFloor),
+        new Platform(150,370,imageFloor),
+        new Platform(200,370,imageFloor),
+        new Platform(250,370,imageFloor)]
+    
+    const pipes = [new Pipe(100,310,imagePipe),
+        new Pipe(220,310,imagePipe)]
+
+    const keys = {
+        right: {
+            pressed: false
+        },
+        left: {
+            pressed: false
+        }
+    }
+
+    function animate() {
+        if (paginas[numPagina] === '.page44') {
+            requestAnimationFrame(animate);
+        } else {  
+            return;
+        }
+        c.clearRect(0,0,canvas.width, canvas.height)
+        console.log('go')
+        platforms.forEach(platform => {
+            platform.draw();
+        })
+        player.update();
+        pipes.forEach(pipe => {
+            pipe.draw();
+        })
+
+        if (keys.right.pressed && player.position.x < 300-player.width) {
+            player.velocity.x = 5;
+        } else if (keys.left.pressed && player.position.x > 0) {
+            player.velocity.x = -5;
+        } else {
+            player.velocity.x = 0;
+        }
+        
+        let brickCounter = 0;
+        platforms.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                if(brickCounter == 6){
+                    document.querySelector('.def-sexo').classList.remove('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                    console.log('sexo');
+                } else if (brickCounter==8) {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.remove('inactive');
+                    console.log('genero');
+                } else {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                }
+            }
+            brickCounter +=1;
+        })
+
+        let pipeCounter = 0;
+        pipes.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                if(brickCounter == 6){
+                    document.querySelector('.def-sexo').classList.remove('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                    console.log('sexo');
+                } else if (brickCounter==8) {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.remove('inactive');
+                    console.log('genero');
+                } else {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                }
+            }
+            if (player.position.x + player.width <= platform.position.x && player.position.x + player.width + player.velocity.x >= platform.position.x && player.position.y + player.height >= platform.position.y && player.position.y <= platform.position.y + platform.height){
+                player.velocity.x = 0;
+            } else if (player.position.x >= platform.position.x + platform.width && player.position.x + player.velocity.x <= platform.position.x + platform.width && player.position.y + player.height >= platform.position.y && player.position.y <= platform.position.y + platform.height){
+                player.velocity.x = 0;
+            }
+            pipeCounter +=1;
+        })
+    }
+    animate();
+
+    window.addEventListener('keydown', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = true;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = true;
+                break;
+            case 'ArrowUp':
+                player.velocity.y -= 20;
+                break;
+            case 'ArrowDown':
+                if(paginas[numPagina] === '.page44'){
+                    let pipeCounter1 = 0;
+                    pipes.forEach(pipe =>{
+                        if(player.position.x >= pipe.position.x && player.position.y<= pipe.position.y && player.position.x + player.width <= pipe.position.x + pipe.width){
+                            if(pipeCounter1 === 0){
+                                document.querySelector('.text-ups').classList.remove('inactive');
+                            } else {
+                                const videoPage = document.querySelector('.page45')
+                                videoPage.classList.remove('inactive')
+                                const pipePage = document.querySelector('.page44')
+                                pipePage.classList.add('inactive')
+                            }
+                        }
+                        pipeCounter1+=1;
+                    })
+                }
+                break;
+        }
+    })
+    window.addEventListener('keyup', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = false;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = false;
+                break;
+            case 'ArrowUp':
+                break;
+            case 'ArrowDown':
+                break;
+        }
+    })
+}
+
+function allowDrop45(ev) {
+    ev.preventDefault();
+}
+
+function drag45(ev) {
+    ev.dataTransfer.setData("text", ev.target.classList);
+}
+
+function drop45(ev){
+    var data = ev.dataTransfer.getData("text");
+    if(ev.target.classList[0].includes("primero-drop") &&  data.includes("primero-drop") || ev.target.classList[0].includes("segundo-drop") &&  data.includes("segundo-drop") || ev.target.classList[0].includes("tercero-drop") &&  data.includes("tercero-drop") || ev.target.classList[0].includes("cuarto-drop") &&  data.includes("cuarto-drop") || ev.target.classList[0].includes("quinto-drop") &&  data.includes("quinto-drop")) {
+        ev.target.appendChild(document.querySelector(`.${data}`))
+    }
+}
+
+function page46() {
+    const canvas = document.querySelector('.canvas46');
+    const c = canvas.getContext('2d');
+
+    const gravity = 1.5;
+    class Player {
+        constructor() {
+            this.position = {
+                x:100,
+                y:100
+            };
+            this.velocity = {
+                x: 0,
+                y: 0
+            }
+            this.width = 30;
+            this.height = 30;
+        }
+        draw() {
+            c.fillStyle = 'red'
+            c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+
+        update() {
+            this.draw();
+            this.position.y += this.velocity.y;
+            this.position.x += this.velocity.x;
+
+            if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity;
+            } else this.velocity.y = 0;
+        }
+    }
+
+    class Platform {
+        constructor(x,y,image) {
+            this.position = {
+                x:x,
+                y:y
+            }
+            this.image = image;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    const imageBrick = document.createElement('img');
+    imageBrick.src = 'assets/images/brick.png';
+
+    const imageFloor = document.createElement('img');
+    imageFloor.src = 'assets/images/bloque.png';
+
+    const imageQuestion = document.createElement('img');
+    imageQuestion.src = 'assets/images/question-block.png'
+
+    const player = new Player();
+    const platforms = [new Platform(0,370,imageFloor),
+        new Platform(50,370,imageFloor),
+        new Platform(100,370,imageFloor),
+        new Platform(150,370,imageFloor),
+        new Platform(200,370,imageFloor),
+        new Platform(250,370,imageFloor),
+        new Platform(0,100,imageQuestion),
+        new Platform(50,230,imageQuestion),
+        new Platform(100,100,imageQuestion),
+        new Platform(150,230,imageQuestion),
+        new Platform(200,100,imageQuestion),
+        new Platform(250,230,imageQuestion)]
+
+    const keys = {
+        right: {
+            pressed: false
+        },
+        left: {
+            pressed: false
+        }
+    }
+
+    function animate() {
+        if (paginas[numPagina] === '.page46') {
+            requestAnimationFrame(animate);
+        } else {  
+            return;
+        }
+        c.clearRect(0,0,canvas.width, canvas.height)
+        console.log('go')
+        platforms.forEach(platform => {
+            platform.draw();
+        })
+        player.update();
+
+        if (keys.right.pressed && player.position.x < 300-player.width) {
+            player.velocity.x = 5;
+        } else if (keys.left.pressed && player.position.x > 0) {
+            player.velocity.x = -5;
+        } else {
+            player.velocity.x = 0;
+        }
+        
+        let brickCounter = 0;
+        platforms.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                switch (brickCounter) {
+                    case 6:
+                        document.querySelector('.def-ayuda-1').classList.remove('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                    case 7:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.remove('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                    case 8:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.remove('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                    case 9:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.remove('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                    case 10:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.remove('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                    case 11:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.remove('inactive');
+                        break;
+                    default:
+                        document.querySelector('.def-ayuda-1').classList.add('inactive');
+                        document.querySelector('.def-ayuda-2').classList.add('inactive');
+                        document.querySelector('.def-ayuda-3').classList.add('inactive');
+                        document.querySelector('.def-ayuda-4').classList.add('inactive');
+                        document.querySelector('.def-ayuda-5').classList.add('inactive');
+                        document.querySelector('.def-ayuda-6').classList.add('inactive');
+                        break;
+                }
+            }
+            brickCounter +=1;
+        })
+    }
+    animate();
+
+    window.addEventListener('keydown', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = true;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = true;
+                break;
+            case 'ArrowUp':
+                player.velocity.y -= 20;
+                break;
+            case 'ArrowDown':
+                break;
+        }
+    })
+
     window.addEventListener('keyup', (event)=>{
         switch (event.key) {
             case 'ArrowLeft':
