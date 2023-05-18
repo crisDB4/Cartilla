@@ -760,7 +760,7 @@ function page8() {
                             const pipePage = document.querySelector('.page8')
                             pipePage.classList.add('inactive')
                             if(pipeCounter1 === 0){
-                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/ohq20xDRjr0';
+                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/K4xcwQWCPow';
                             } else {
                                 document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/QL5-xyGQCtA';
                             }
