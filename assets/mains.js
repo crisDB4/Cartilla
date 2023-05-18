@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46'];
+const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49'];
 let numPagina = 0;
 
 /* Cambiar páginas */
@@ -108,6 +108,8 @@ function switchPages(operation) {
         pagina13Video.classList.add('inactive')
         const pagina45Video = document.querySelector('.page45');
         pagina45Video.classList.add('inactive')
+        const pagina48Video = document.querySelector('.page48');
+        pagina48Video.classList.add('inactive')
     }
     console.log(paginas[numPagina]);
     switch (paginas[numPagina]) {
@@ -221,6 +223,12 @@ function switchPages(operation) {
             break;
         case '.page46':
             page46();
+            break;
+        case '.page47':
+            page47();
+            break;
+        case '.page49':
+            page49();
             break;
     }
 }
@@ -3296,5 +3304,238 @@ function page46() {
             case 'ArrowDown':
                 break;
         }
+    })
+}
+
+function page47() {
+    const canvas = document.querySelector('.canvas47');
+    const c = canvas.getContext('2d');
+
+    const gravity = 1.5;
+    class Player {
+        constructor() {
+            this.position = {
+                x:100,
+                y:100
+            };
+            this.velocity = {
+                x: 0,
+                y: 0
+            }
+            this.width = 30;
+            this.height = 30;
+        }
+        draw() {
+            c.fillStyle = 'red'
+            c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+
+        update() {
+            this.draw();
+            this.position.y += this.velocity.y;
+            this.position.x += this.velocity.x;
+
+            if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity;
+            } else this.velocity.y = 0;
+        }
+    }
+
+    class Platform {
+        constructor(x,y,image) {
+            this.position = {
+                x:x,
+                y:y
+            }
+            this.image = image;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    class Pipe {
+        constructor(x,y,image) {
+            this.position = {
+                x,
+                y
+            }
+            this.image = image;
+            this.width = 60;
+            this.height= 60;
+        }
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    const imageBrick = document.createElement('img');
+    imageBrick.src = 'assets/images/brick.png';
+
+    const imageFloor = document.createElement('img');
+    imageFloor.src = 'assets/images/bloque.png';
+
+    const imageQuestion = document.createElement('img');
+    imageQuestion.src = 'assets/images/question-block.png'
+
+    const imagePipe = document.createElement('img');
+    imagePipe.src = 'assets/images/small-pipe.png'
+
+    const player = new Player();
+    const platforms = [new Platform(0,370,imageFloor),
+        new Platform(50,370,imageFloor),
+        new Platform(100,370,imageFloor),
+        new Platform(150,370,imageFloor),
+        new Platform(200,370,imageFloor),
+        new Platform(250,370,imageFloor)]
+    
+    const pipes = [new Pipe(100,310,imagePipe),
+        new Pipe(220,310,imagePipe)]
+
+    const keys = {
+        right: {
+            pressed: false
+        },
+        left: {
+            pressed: false
+        }
+    }
+
+    function animate() {
+        if (paginas[numPagina] === '.page47') {
+            requestAnimationFrame(animate);
+        } else {  
+            return;
+        }
+        c.clearRect(0,0,canvas.width, canvas.height)
+        console.log('go')
+        platforms.forEach(platform => {
+            platform.draw();
+        })
+        player.update();
+        pipes.forEach(pipe => {
+            pipe.draw();
+        })
+
+        if (keys.right.pressed && player.position.x < 300-player.width) {
+            player.velocity.x = 5;
+        } else if (keys.left.pressed && player.position.x > 0) {
+            player.velocity.x = -5;
+        } else {
+            player.velocity.x = 0;
+        }
+        
+        let brickCounter = 0;
+        platforms.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                if(brickCounter == 6){
+                    document.querySelector('.def-sexo').classList.remove('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                    console.log('sexo');
+                } else if (brickCounter==8) {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.remove('inactive');
+                    console.log('genero');
+                } else {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                }
+            }
+            brickCounter +=1;
+        })
+
+        let pipeCounter = 0;
+        pipes.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                if(brickCounter == 6){
+                    document.querySelector('.def-sexo').classList.remove('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                    console.log('sexo');
+                } else if (brickCounter==8) {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.remove('inactive');
+                    console.log('genero');
+                } else {
+                    document.querySelector('.def-sexo').classList.add('inactive');
+                    document.querySelector('.def-genero').classList.add('inactive');
+                }
+            }
+            if (player.position.x + player.width <= platform.position.x && player.position.x + player.width + player.velocity.x >= platform.position.x && player.position.y + player.height >= platform.position.y && player.position.y <= platform.position.y + platform.height){
+                player.velocity.x = 0;
+            } else if (player.position.x >= platform.position.x + platform.width && player.position.x + player.velocity.x <= platform.position.x + platform.width && player.position.y + player.height >= platform.position.y && player.position.y <= platform.position.y + platform.height){
+                player.velocity.x = 0;
+            }
+            pipeCounter +=1;
+        })
+    }
+    animate();
+
+    window.addEventListener('keydown', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = true;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = true;
+                break;
+            case 'ArrowUp':
+                player.velocity.y -= 20;
+                break;
+            case 'ArrowDown':
+                if(paginas[numPagina] === '.page47'){
+                    let pipeCounter1 = 0;
+                    pipes.forEach(pipe =>{
+                        if(player.position.x >= pipe.position.x && player.position.y<= pipe.position.y && player.position.x + player.width <= pipe.position.x + pipe.width){
+                            const videoPage = document.querySelector('.page48')
+                            videoPage.classList.remove('inactive')
+                            const pipePage = document.querySelector('.page47')
+                            pipePage.classList.add('inactive')
+                            if(pipeCounter1 === 0){
+                                document.querySelector('.song-choose-page47').src = 'https://www.youtube.com/embed/Vg3qKslEFjY';
+                            } else {
+                                document.querySelector('.song-choose-page47').src = 'https://www.youtube.com/embed/yU1gQw-RBj0';
+                            }
+                        }
+                        pipeCounter1+=1;
+                    })
+                }
+                break;
+        }
+    })
+    window.addEventListener('keyup', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = false;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = false;
+                break;
+            case 'ArrowUp':
+                break;
+            case 'ArrowDown':
+                break;
+        }
+    })
+}
+
+const formPage49 = document.querySelector('.page49-form')
+const btnPage49 = document.querySelector('.btn-page-49');
+const txtPage491 = document.querySelector('.page49-txt-1')
+const changeTextPage49 = document.querySelector('.changeTextPage49')
+
+function page49() {
+    btnPage49.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage49.innerText = `Listo! Tus respuestas fueron: \n${txtPage491.value}`;
+                formPage49.remove();
     })
 }
