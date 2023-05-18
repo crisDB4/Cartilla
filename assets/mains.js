@@ -1323,7 +1323,7 @@ function page12() {
                             const pipePage = document.querySelector('.page12')
                             pipePage.classList.add('inactive')
                             if(pipeCounter1 === 0){
-                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/2U68qBekItE';
+                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/KZoRLSolyx4';
                             } else {
                                 document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/P7JhmTL9g7c';
                             }
