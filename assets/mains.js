@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49'];
+const paginas = ['.page1','.conceptualizacion','.presentacion-mei','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49'];
 let numPagina = 0;
 
 /* Cambiar páginas */
@@ -494,7 +494,7 @@ function page5() {
     }
 
     function animate() {
-        if (numPagina === 7) {
+        if (paginas[numPagina] === '.page5') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -690,7 +690,7 @@ function page8() {
     }
 
     function animate() {
-        if (numPagina === 11) {
+        if (paginas[numPagina] === '.page8') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -776,7 +776,7 @@ function page8() {
                 player.velocity.y -= 20;
                 break;
             case 'ArrowDown':
-                if(numPagina===11){
+                if(paginas[numPagina] === '.page8'){
                     let pipeCounter1 = 0;
                     pipes.forEach(pipe =>{
                         if(player.position.x >= pipe.position.x && player.position.y<= pipe.position.y && player.position.x + player.width <= pipe.position.x + pipe.width){
@@ -1038,7 +1038,7 @@ function page10() {
     }
 
     function animate() {
-        if (numPagina === 12) {
+        if (paginas[numPagina] === '.page10') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -1274,7 +1274,7 @@ function page12() {
     }
 
     function animate() {
-        if (numPagina === 15) {
+        if (paginas[numPagina] === '.page12') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -1360,7 +1360,7 @@ function page12() {
                 player.velocity.y -= 20;
                 break;
             case 'ArrowDown':
-                if(numPagina===15){
+                if(paginas[numPagina] === '.page12'){
                     let pipeCounter1 = 0;
                     pipes.forEach(pipe =>{
                         if(player.position.x >= pipe.position.x && player.position.y<= pipe.position.y && player.position.x + player.width <= pipe.position.x + pipe.width){
@@ -1490,7 +1490,7 @@ function page16() {
     }
 
     function animate() {
-        if (numPagina === 18) {
+        if (paginas[numPagina] === '.page16') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -1774,7 +1774,7 @@ function page20() {
     }
 
     function animate() {
-        if (numPagina === 24) {
+        if (paginas[numPagina] === '.page20') {
             requestAnimationFrame(animate);
         } else {  
             return;
@@ -2005,7 +2005,7 @@ function page24() {
     }
 
     function animate() {
-        if (numPagina === 29) {
+        if (paginas[numPagina] === '.page24') {
             requestAnimationFrame(animate);
         } else {  
             return;
