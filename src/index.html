@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Cartilla</title>
+    <style>
+        :root {
+            --blue: #EAF2F8 ;
+            --darkblue: #00b3e6;
+            --white: #ffffff;
+            --darkerblue: #154360;
+            --black: #111111;
+        }
+        body {
+            margin: 0;
+            background: var(--blue);
+            font-family: 'VT323', monospace;
+        }
+        /*Todas las paginas*/
+        .container {
+            width: 100%;
+            height: 100vh;
+            background: var(--blue);
+            display: grid;
+            grid-template-rows: auto auto;
+            place-items: center;
+        }
+        .main-buttons {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .book-container {
+            width: 300px;
+            height: 500px;
+            background: var(--darkblue);
+            box-shadow: 2px 4px 10px grey;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        h1,
+        h2 {
+            margin: 40px 20px;
+            position: relative;
+            top: 10px;
+            text-align: center;
+            color: var(--white);
+            text-shadow: 0px 3px var(--darkerblue);
+        }
+        h1 {
+            font-size: 40px;
+        }
+        h2 {
+            font-size: 30px;
+        }
+        .btn-prev,
+        .btn-next {
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+            background: var(--darkerblue);
+            border: 1px solid var(--darkerblue);
+            color: var(--white);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .btn-prev {
+            justify-self: end;
+            margin: 0 20px;
+        }
+        .btn-next {
+            justify-self: start;
+            margin: 0 40px;
+        }
+
+        .btn-next:hover,
+        .btn-prev:hover {
+            color: var(--darkerblue);
+            background: var(--white);
+            border: 1px solid var(--darkerblue);
+        }
+        /*Pagina 1*/
+        .page1 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+
+        .bloque {
+            width: 60px;
+            object-Fit: 'cover';
+            position: absolute;
+            bottom: 0px;
+        }
+        .nube {
+            width: 150px;
+            object-Fit: 'cover';
+            position: absolute;
+        }
+        .moneda {
+            width: 70px;
+            object-fit: cover;
+        }
+
+        .page2{
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+        .page2 h1 {
+            margin: 20px;
+        }
+        .mario,
+        .peach,
+        .toad {
+            height: 90px;
+            object-fit: cover;
+            cursor: pointer;
+            transform: scaleX(-1);
+            margin: 10px;
+        }
+        .mario:hover,
+        .peach:hover,
+        .toad:hover {
+            padding: 4px;
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            background: var(--darkerblue);
+        }
+
+        /* Pagina 3 */
+        .page3 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr auto 1fr 1fr 1fr;
+            justify-items: center;
+        }
+        .page3 p {
+            margin: 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        .page3 .main-character {
+            height: 60px;
+            object-fit: cover;
+            transform: scaleX(-1);
+            margin: 10px;
+        }
+        .page3 form {
+            width: 100%;
+            height: 150px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+        .page3 form button {
+            width: auto;
+            height: auto;
+            font-size: 16px;
+            text-align: center;
+            padding: 8px 4px;
+            margin: 12px;
+            background: var(--darkerblue);
+            border: 1px solid var(--darkerblue);
+            color: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+        }
+
+        .page3 form button:hover {
+            color: var(--darkerblue);
+            background: var(--white);
+            border: 1px solid var(--darkerblue);
+        }
+        .page3 form textarea{
+            width: 250px;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--white);
+            font-size: 16px;
+            font-family: 'VT323', monospace;
+            resize: none;
+            box-shadow: 2px 4px 10px grey;
+        }
+        .page3 .description {
+            height: 120px;
+        }
+        .page3 .frase-cancion {
+            height: 30px;
+        }
+        .personaje-frase {
+            width: 250px;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            justify-items: center;
+            align-items: 60px;
+        }
+        .personaje-frase p {
+            font-size: 16px;
+            margin: 12px;
+        }
+        .personaje-rasgos {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+        .personaje-rasgos ul {
+            width: 200px;
+            list-style: none;
+            padding: 4px;
+            background: var(--darkerblue);
+            border-radius: 8px;
+            margin: 4px;
+        }
+        .personaje-rasgos ul:nth-child(0){
+            text-align: center;
+        }
+        .personaje-rasgos ul li {
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        /* page 4 */
+        .page4 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr auto 1fr 1fr 1fr;
+            justify-items: center;
+        }
+        .page4 p {
+            margin: 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        .page4 .character-animation {
+            height: 60px;
+            object-fit: cover;
+            transform: scaleX(-1);
+            margin: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+        }
+        .page4 form {
+            width: 100%;
+            height: 150px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+        .page4 form button {
+            width: auto;
+            height: auto;
+            font-size: 16px;
+            text-align: center;
+            padding: 8px 4px;
+            margin: 12px;
+            background: var(--darkerblue);
+            border: 1px solid var(--darkerblue);
+            color: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+        }
+
+        .page4 form button:hover {
+            color: var(--darkerblue);
+            background: var(--white);
+            border: 1px solid var(--darkerblue);
+        }
+        .page4 form textarea{
+            width: 250px;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--white);
+            font-size: 16px;
+            font-family: 'VT323', monospace;
+            resize: none;
+            box-shadow: 2px 4px 10px grey;
+        }
+        .page4 .textFormat {
+            height: 30px;
+        }
+        .personaje-imagen {
+            width: 250px;
+            display: grid;
+            grid-template-columns:1fr;
+            justify-items: center;
+            align-items: 60px;
+        }
+        .character-animation {
+            height: 60px;
+            object-fit: cover;
+            transform: scaleX(-1);
+            margin: 10px;
+        }
+
+        /* page 5 */
+        .page5 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            justify-items: center;
+        }
+        .page5 p:nth-child(1) {
+            margin: 20px 20px 5px 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        canvas {
+            width: 300px;
+            height: 420px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .definicion {
+            margin: 5px 20px;
+            position: relative;
+            padding: 5px;
+            width: auto;
+            height: 150px;
+            font-size: 16px;
+            background: var(--white);
+            color: var(--black);
+            text-align: justify;
+            border-radius: 10px;;
+            box-shadow: 2px 4px 10px grey;
+            z-index: 2;
+            overflow: auto;
+        }
+
+        /* page 6 */
+        .page6 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+        iframe {
+            width: 260px;
+            height: 150px;
+            object-fit: cover;
+            margin: 0 20px 20px 20px;
+            align-self: start;
+            border-radius: 15px;
+            box-shadow: 2px 4px 10px grey;
+        }
+        .page6 p {
+            margin: 20px 20px 5px 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        .page6 img {
+            align-self: end;
+            margin: 0;
+        }
+
+        /* page 8 */
+        .page8 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            justify-items: center;
+        }
+        .page8 p:nth-child(1) {
+            margin: 20px 20px 5px 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        canvas {
+            width: 300px;
+            height: 420px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* page 10 */
+        .page10 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            justify-items: center;
+        }
+        .page10 p:nth-child(1) {
+            margin: 20px 20px 5px 20px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        .canvas3 {
+            width: 300px;
+            height: 420px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /*  */
+        .canvas5 {
+            width: 300px;
+            height: 420px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .definicion {
+            margin: 5px 20px;
+            padding: 5px;
+            width: auto;
+            height: 150px;
+            font-size: 16px;
+            background: var(--white);
+            color: var(--black);
+            text-align: justify;
+            border-radius: 10px;;
+            box-shadow: 2px 4px 10px grey;
+            z-index: 5;
+            overflow: auto;
+        }
+
+        .page28 .definicion {
+            height: 65px;
+        }
+
+        .page31 .definicion {
+            height: 70px;
+        }
+        .inactive {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-container">
+            <div class="page1">
+                <h1>Género Bros: El viaje hacia la igualdad</h1>
+                <img src="./assets/images/moneda.png" alt="" class="moneda">
+            </div>
+            <div class="nivel1 inactive">
+                <h1>Mundo Diversidad y Diferencia</h1>
+            </div>
+            <div class="nivel1-1 inactive">
+                <h1>Nivel 1. “La batalla interna”</h1>
+                <p>Misión: Descubre tu fuerza interior.</p>
+                <p>Tiempo en Misión: 10 minutos</p>
+            </div>
+            <div class="page2 inactive">
+                <h1>Escoge a tu personaje</h1>
+                <img class="mario" src="./assets/images/mario-main.png">
+                <img class="peach" src="./assets/images/peach-main.png">
+                <img class="toad" src="./assets/images/toad-main.png">
+            </div>
+            <div class="page3 inactive">
+                <p class="changeText">Vamos a crear a tu personaje, por favor escribe un parrafo respondiendo las siguientes preguntas: <br>¿qué me gusta hacer? ¿Lo que odio de mi? ¿Mis defectos? ¿Mis cualidades? ¿Los ideales que tengo?</p>
+                <div class="personaje-frase inactive">
+                    <img src="" alt="" class="main-character">
+                    <p class="frase"></p>
+                </div>
+                <div class="personaje-rasgos inactive">
+                    <ul class="fortalezas">
+                        <li>Fortalezas 😁</li>
+                    </ul>
+                    <ul class="debilidades">
+                        <li>Debilidades 😞</li>
+                    </ul>
+                </div>
+                <form action="" class="send-message">
+                    <textarea class="description"></textarea>
+                    <p>Escribe una frase de una canción con la que te identifiques:</p>
+                    <textarea class="frase-cancion"></textarea>
+                    <button class="new-analysis">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel1-2 inactive">
+                <h1>Nivel 2.  “Desafía las etiquetas”</h1>
+                <p>Misión: Desafía aquello que creías saber</p>
+                <p>Tiempo en Misión: 20 minutos</p>
+            </div>
+            <div class="page4 inactive">
+                <p class="changeTextSexo">Para iniciar está misión tendrás que activar tus herramientas mentales, así que escribe en el siguiente cuadro lo que crees que es sexo</p>
+                <img src="" alt="" class="character-animation">
+                <form action="" class="sexo-genero">
+                    <textarea class="sexo-txt textFormat"></textarea>
+                    <p>Y en el siguiente cuadro escribe que entiendes por género:</p>
+                    <textarea class="genero-txt textFormat"></textarea>
+                    <button class="sexo-genero-btn">Listo!</button>
+                </form>
+            </div>
+            <div class="page5 inactive">
+                <p>Ahora desafía lo que creías saber, ¡A romper bloques!</p>
+                <p class="def-sexo inactive definicion">Sexo: Se refiere a la categoría que se le asigna a una persona al nacer teniendo en cuenta sus características biológicas, físicas y sexuales, por ejemplo, los órganos reproductivos.  Así mismo, ten en cuenta que existen tres tipos de sexo biológico: Femenino, masculino e intersexual.</p>
+                <p class="def-genero inactive definicion">Género:  Define lo que significa ser un hombre o una mujer y como deben comportarse, es decir, son las expectativas culturales y sociales que se le asocian a cada uno, por ejemplo, se piensa que un hombre debe ser fuerte y valiente, mientras que una mujer debe ser delicada y sumisa.</p>
+                <canvas width="300" height="420"></canvas>
+            </div>
+            <div class="page6 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción: “La mujer cactus y el hombre globo - Rayden”</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="video-cactus" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page7 inactive">
+                <p> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
+                <div class="drag-container">
+                    <p class="organos-sexo-drop" draggable="true" ondragstart="drag(event)">Organos sexuales</p>
+                    <p class="construccion-genero-drop" draggable="true" ondragstart="drag(event)">Construcción social</p>
+                    <p class="intersexual-sexo-drop" draggable="true" ondragstart="drag(event)">intersexual</p>
+                    <p class="rol-genero-drop" draggable="true" ondragstart="drag(event)">Roles de género</p>
+                    <p class="expectativas-genero-drop" draggable="true" ondragstart="drag(event)">Expectativas culturales</p>
+                    <p class="femenino-sexo-drop" draggable="true" ondragstart="drag(event)">Femenino</p>
+                    <p class="masculino-sexo-drop" draggable="true" ondragstart="drag(event)">Masculino</p>
+                </div>
+                <div class="drop-container">
+                    <div class="sexo-drop" ondrop="drop(event)" ondragover="allowDrop(event)">Sexo</div>
+                    <div class="genero-drop" ondrop="drop(event)" ondragover="allowDrop(event)">Género</div>
+                </div>
+            </div>
+            <div class="nivel1-3 inactive">
+                <h1>Nivel 3. “Rompiendo moldes”</h1>
+                <p>Misión: Construye tu mundo interior</p>
+                <p>Tiempo en Misión: 20 minutos</p>
+            </div>
+            <div class="page8 inactive">
+                <p>Para continuar la misión, deberás tomar un decisión importante, elige la canción que deseas escuchar, de ella depende el rumbo de tu misión</p>
+                <canvas class="canvas2" width="300" height="420"></canvas>
+            </div>
+            <div class="page9 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción:</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="song-choose" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page10 inactive">
+                <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
+                <canvas class="canvas3" width="300" height="420"></canvas>
+            </div>
+            <div class="page11 inactive">
+                <p class="changeTextPage11">Para obtener la bandera, deberás demostrar tu capacidad para construir tu mundo interior, así que responde las siguientes preguntas:</p>
+                <form action="" class="page11-form">
+                    <p>¿Qué sentí al escuchar la canción?</p>
+                    <textarea class="page11-txt-1 textFormat"></textarea>
+                    <p>¿Con qué género me identifico?</p>
+                    <textarea class="page11-txt-2 textFormat"></textarea>
+                    <p>¿Por qué soy único?</p>
+                    <textarea class="page11-txt-3 textFormat"></textarea>
+                    <p>¿Por qué debo respetar las diferentes? </p>
+                    <textarea class="page11-txt-4 textFormat"></textarea>
+                    <button class="btn-page-11">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel1-4 inactive">
+                <h1>Nivel 4. “Deconstruye tus ideas”</h1>
+                <p>Misión: Supera tus límites.</p>
+                <p>Tiempo en misión: 20 minutos</p>
+            </div>
+            <div class="page12 inactive">
+                <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
+                <canvas class="canvas4" width="300" height="420"></canvas>
+            </div>
+            <div class="page13 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción:</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="song-choose-page12" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page14 inactive">
+                <p>¿Posees ideas que limitan tu visión del mundo?, si quieres responder está pregunta, ¡deberás desafiarte!</p>
+            </div>
+            <div class="page15 inactive">
+                <p> Elige las palabras que le pertenecen al personaje ¡Veámoslo!</p>
+                <div class="drag-container">
+                    <p class="amor-drop" draggable="true" ondragstart="drag15(event)">Amor</p>
+                    <p class="agresividad-drop" draggable="true" ondragstart="drag15(event)">Agresividad</p>
+                    <p class="debilidad-drop" draggable="true" ondragstart="drag15(event)">Debilidad</p>
+                    <p class="fuerza-drop" draggable="true" ondragstart="drag15(event)">Fuerza</p>
+                    <p class="rosado-drop" draggable="true" ondragstart="drag15(event)">Rosado</p>
+                    <p class="azul-drop" draggable="true" ondragstart="drag15(event)">Azul</p>
+                </div>
+                <div class="drop-container">
+                    <img src="./assets/images/peach-main.png" alt="">
+                    <div class="peach-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Peach</div>
+                    <img src="./assets/images/mario-main.png" alt="">
+                    <div class="mario-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mario</div>
+                </div>
+            </div>
+            <div class="page16 inactive">
+                <p>Ahora desafía lo que creías saber, ¡A romper bloques!</p>
+                <p class="def-roles inactive definicion">Roles de género: <br> Son los comportamientos y labores que se espera que cumplas, dependiendo si eres hombre o mujer, por ejemplo, se piensa erróneamente que solo los hombres toman las decisiones importantes en el hogar, mientras que las mujeres se deben dedicar a las tareas del hogar o cuidado de los niños.</p>
+                <p class="def-estereotipos inactive definicion">Estereotipos de género:
+                    <br> Son ideas generalizadas que se tiene sobre los comportamientos esperados de las personas según si son hombres o mujeres.
+                    <br>    Así mismo, los estereotipos de género limitan la capacidad de las personas para actuar teniendo en cuenta sus intereses o habilidades.
+                    <br>    ¿Has escuchado estás frases? “Los hombres son buenos en matemáticas” y “Las mujeres son débiles y emocionales”, pues bien, ¡Estos son estereotipos de género! </p>
+                <canvas class="canvas5" width="300" height="420"></canvas>
+            </div>
+            <div class="page17 inactive">
+                <h2>¿Deseas ganar un nuevo poder? Lee atentamente</h2>
+                <div class="text-page-17">                
+                    <h3>¿Sabías que los estereotipos de género promueven la violencia? </h3>
+                    <p>Los estereotipos de género crean expectativas y roles rígidos que limitan a las personas, por lo tanto, los puede presionar a actuar de cierta forma según su género, por ejemplo, se piensa que los hombres son fuertes y agresivos lo que puede llevar a que algunos hombres recurren a la violencia física para demostrar su “masculinidad”, por otro lado, se tiene el estereotipo de que la mujer es débil y sumisa, por lo que algunos hombres pueden pensar que tiene el derecho a controlar a las mujeres y someterlas haciendo uso de distintos tipos de violencia.</p>
+                    <h4>¡Desde ahora no verás el mundo igual!</h4>
+                </div>
+            </div>
+            <div class="page18 inactive">
+                <p class="changeTextPage18">¡Has superado tus límites y estás más cerca de la bandera! Para poder completar tu misión deberás responder las siguientes preguntas:</p>
+                <form action="" class="page18-form">
+                    <p>¿Qué estereotipos reconocí en la canción?</p>
+                    <textarea class="page18-txt-1 textFormat"></textarea>
+                    <p>¿Qué pienso sobre los estereotipos?</p>
+                    <textarea class="page18-txt-2 textFormat"></textarea>
+                    <p>¿Qué estereotipos he vivido?</p>
+                    <textarea class="page18-txt-3 textFormat"></textarea>
+                    <p>¿Creo que los estereotipos promueven la violencia basada en género? </p>
+                    <textarea class="page18-txt-4 textFormat"></textarea>
+                    <button class="btn-page-18">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel2  inactive">
+                <h1>Mundo Oscuro</h1>
+            </div>
+            <div class="nivel2-5  inactive">
+                <h1>Nivel 5.  “Corre por tu vida”</h1>
+                <p>Misión: Observar que no todo es color de rosa</p>
+                <p>Tiempo en Misión: 15 minutos</p>
+            </div>
+            <div class="page19 inactive">
+                <h2>¿Qué es la violencia basada en género?</h2>
+                <div class="text-page-19">                
+                    <p>Es una forma de control que se muestra de muchas maneras y afecta el bienestar de la persona que recibe el maltrato o violencia.</p>
+                </div>
+            </div>
+            <div class="page20 inactive">
+                <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
+                <canvas class="canvas6" width="300" height="420"></canvas>
+            </div>
+            <div class="page21 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción:</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="video-violencia" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page22 inactive">
+                <p class="changeTextPage22">Finalmente para avanzar a la siguiente misión, en cada cuadro menciona una frase de esta canción y explicara por qué las elegiste</p>
+                <form action="" class="page22-form">
+                    <p>Escribe la primera frase y la justificación</p>
+                    <textarea class="page22-txt-1 textFormat"></textarea>
+                    <p>Escribe la segunda frase y la justificación</p>
+                    <textarea class="page22-txt-2 textFormat"></textarea>
+                    <button class="btn-page-22">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel2-6  inactive">
+                <h1>Nivel 6. “ Tipos de oscuridad”</h1>
+                <p>Misión: Conocer la oscuridad.</p>
+                <p>Tiempo en Misión: 20 minutos</p>
+            </div>
+            <div class="page23 inactive">
+                <p class="changeTextPage23">Responde a la siguiente pregunta</p>
+                <form action="" class="page23-form">
+                    <p>¿cuáles tipos de violencia crees que existen?</p>
+                    <textarea class="page23-txt-1 textFormat"></textarea>
+                    <button class="btn-page-23">Listo!</button>
+                </form>
+            </div>
+            <div class="page24 inactive">
+                <p>Vamos a conocer los tipos de violencia, ¡A romper bloques!</p>
+                <p class="def-violencia-1 inactive definicion">Violencia económica: Es la acción que provoca una disminución o por debajeo de lo que logra tener una persona en asuntos económicos, acompañado de retención de dinero y humillación.<br><br>Quispe Perez, N. A. (2021). Violencia económica o patrimonial contra mujeres e integrantes del grupo familiar: Revisión de literatura.</p>
+                <p class="def-violencia-2 inactive definicion">Violencia Psicológica: Cualquier acto que dañe la estabilidad emocional de las personas, en esto se ve reflejado palabras de desprecio, humillaciones, abandono, infidelidad, rechazo y marginación, lo cual genera tristeza.
+                    <br><br>Vázquez, A. G., Castillo, A. B. S., Moreno, M. F. E., & Mejía, D. A. G. (2020). Autoestima y violencia psicológica contra mujeres universitarias en sus relaciones de pareja. Enseñanza e investigación en psicología, 2(1), 139-148.</p>
+                <p class="def-violencia-3 inactive definicion">Violencia física: Uso de la fuerza física hacia otras personas, en donde se golpea, empuja, muerde o pellizca, afectando el bienestar de la persona agredida.
+                    <br><br>Morales, J., & Cordero, J. (2019). Violencia física y psicológica en trabajadores del primer nivel de atención de Lima y Callao. Revista de la Asociación Española de Especialistas en Medicina del Trabajo, 28(3), 186-194.</p>
+                <p class="def-violencia-4 inactive definicion">Violencia sexual: Acto o comentario sexual que no es deseado por parte de la victima y es obligado a realizar o aceptar.
+                    <br><br>Rodriguez Tellez, C. E., & Florez Murillo, J. J. (2019). Perfil psicológico de mujeres víctimas de violencia sexual: una perspectiva de género.</p> 
+                <canvas class="canvas7" width="300" height="420"></canvas>
+            </div>
+            <div class="page25 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción:</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="video-violencia2" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page26 inactive">
+                <p class="changeTextPage26">Para poder avanzar, escribirás qué tipos de violencia se mencionaron en la canción y darás un ejemplo de cada una.</p>
+                <form action="" class="page26-form">
+                    <textarea class="page26-txt-1 textFormat"></textarea>
+                    <button class="btn-page-26">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel2-7  inactive">
+                <h1>Nivel 7. “Mundos de oscuridad”</h1>
+                <p>Misión: Observar que la oscuridad puede estar en todo lado</p>
+                <p>Tiempo en Misión: 15 minutos</p>
+            </div>
+            <div class="page27 inactive">
+                <p> ¡Hemos avanzado, pero no hemos llegado a la meta! Si quieres subir nivel deberás escuchar la siguiente canción:</p>
+                <img src="./assets/images/mario-main.png" alt="" class="character-animation">
+                <iframe class="video-miedo" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+            </div>
+            <div class="page28 inactive">
+                <p>A continuación vas encontrar información respecto a los contextos donde se da la violencia basada en género. ¡A romper bloques!</p>
+                <p class="def-contexto-1 inactive definicion">Calle: Realizan miradas, comentarios y actos que no te hacen sentir cómodo</p>
+                <p class="def-contexto-2 inactive definicion">Familia o casa: pueden afectar física, psicológicamente y económicamente</p>
+                <p class="def-contexto-3 inactive definicion">Laboral o trabajo: Generan presión o se usa la humillación.</p>
+                <p class="def-contexto-4 inactive definicion">Escolar: Pueden afectar de todas las maneras, generan procesos de humillación o aislamiento.</p> 
+                <p class="def-contexto-5 inactive definicion">Internet: Hacen comentarios grotescos y muchas veces usan el chantaje.</p> 
+                <p class="def-contexto-6 inactive definicion">Pareja: Se pueden generar agresiones, físicas, psicológicas y económicas, esto puede afectar el bienestar de la persona agredida.</p> 
+                <canvas class="canvas8" width="300" height="420"></canvas>
+            </div>
+            <div class="page29 inactive">
+                <p class="changeTextPage29">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <form action="" class="page29-form">
+                    <textarea class="page29-txt-1 textFormat"></textarea>
+                    <button class="btn-page-29">Listo!</button>
+                </form>
+            </div>
+            <div class="nivel3  inactive">
+                <h1>Mundo No Normativo</h1>
+            </div>
+            <div class="nivel3-8  inactive">
+                <h1>Nivel 8. “Ideas en evolución”</h1>
+                <p>Misión: Revoluciona tu pensamiento</p>
+                <p>Tiempo en Misión: 30 minutos</p>
+            </div>
+            <div class="page30 inactive">
+                <p class="changeTextPage30">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <form action="" class="page30-form">
+                    <div>
+                        <p>L</p>
+                        <textarea class="page30-txt-1 textFormat"></textarea>
+                    </div>
+                    <div>
+                        <p>G</p>
+                        <textarea class="page30-txt-2 textFormat"></textarea>
+                    </div>
+                    <div>
+                        <p>B</p>
+                        <textarea class="page30-txt-3 textFormat"></textarea>
+                    </div>
+                    <div>
+                        <p>T</p>
+                        <textarea class="page30-txt-4 textFormat"></textarea>
+                    </div>
+                    <div>
+                        <p>I</p>
+                        <textarea class="page30-txt-5 textFormat"></textarea>
+                    </div>
+                    <div>
+                        <p>Q</p>
+                        <textarea class="page30-txt-6 textFormat"></textarea>
+                    </div>
+                    <button class="btn-page-30">Listo!</button>
+                </form>
+            </div>
+            <div class="page31 inactive">
+                <p>Ahora, revoluciona tu pensamiento. Avanza y descubre que tiene cada bloque para ti</p>
+                <p class="def-lgb-1 inactive definicion">L: Lesbianas: Mujer que siente atracción física, emocional y romántica continuamente hacia las mujeres.</p>
+                <p class="def-lgb-2 inactive definicion"> G: Gays: Hombre que siente una atracción física, emocional y romántica continuamente hacia los hombres.</p>
+                <p class="def-lgb-3 inactive definicion">B: Bisexuales: Persona (hombre o mujer) que siente atracción física, emocional y romántica hacia personas de más de un sexo.</p>
+                <p class="def-lgb-4 inactive definicion">T: Transgenero: Persona que se identifica con un género diferente al que se le asignó al nacer, por ejemplo, una persona asignada como “hombre” al nacer, pero que se identifica y se siente como una mujer.</p>
+                <p class="def-lgb-5 inactive definicion">I: Intersexuales: Persona que puede nacer con genitales o características sexuales que no son completamente masculinas o femeninas, por ejemplo, una persona puede tener órganos genitales externos a los conocidos tradicionalmente de pene o vulva.</p>
+                <p class="def-lgb-6 inactive definicion"> Q: Queer: Identidad que desafía las normas tradicionales de género y sexualidad ya que, por ejemplo, una persona Queer podría identificarse como no heterosexual lo que significa que su atracción se dirige hacia personas del mismo género o múltiples géneros.</p>
+                <canvas class="canvas9" width="300" height="420"></canvas>
+            </div>
+            <div class="nivel3-9  inactive">
+                <h1>Nivel 9. “Igualdad Pixelada”</h1>
+                <p>Misión: Desbloquea poderes y libera posibilidades</p>
+                <p>Tiempo en Misión: 30 minutos</p>
+            </div>
+            <div class="nivel3-10  inactive">
+                <h1>Nivel 10. “Alerta Juvenil”</h1>
+                <p>Misión: Conoce tus caminos de protección.</p>
+                <p>Tiempo en Misión: 30 minutos</p>
+            </div>
+        </div>
+        <div class="main-buttons">
+            <p class="btn-prev"><</p>
+            <p class="btn-next">></p>
+        </div>
+    </div>
+
+    <script src="./assets/mains.js"></script>
+</body>
+</html>
