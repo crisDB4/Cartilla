@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10'];
+const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43'];
 let numPagina = 0;
 
 /* Cambiar páginas */
@@ -205,6 +205,16 @@ function switchPages(operation) {
         case '.page40':
             page40();
             break;
+        case '.page41':
+            page41();
+            break;
+        case '.page42':
+            page42();
+            break;
+        case '.page43':
+            page43();
+            break;
+    
     }
 }
 
@@ -2647,5 +2657,198 @@ function page40() {
         event.preventDefault();
                 changeTextPage40.innerText = `Listo! Tus respuestas fueron: \n${txtPage401.value}`;
                 formPage40.remove();
+    })
+}
+
+function page41() {
+    document.querySelector('.video-10').src = 'https://www.youtube.com/embed/1F2izz5JEUo';
+}
+
+const formPage42 = document.querySelector('.page42-form')
+const btnPage42 = document.querySelector('.btn-page-42');
+const txtPage421 = document.querySelector('.page42-txt-1')
+const changeTextPage42 = document.querySelector('.changeTextPage42')
+
+function page42() {
+    btnPage42.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage42.innerText = `Listo! Tus respuestas fueron: \n${txtPage421.value}`;
+                formPage42.remove();
+    })
+}
+
+function page43() {
+    const canvas = document.querySelector('.canvas43');
+    const c = canvas.getContext('2d');
+
+    const gravity = 1.5;
+    class Player {
+        constructor() {
+            this.position = {
+                x:100,
+                y:100
+            };
+            this.velocity = {
+                x: 0,
+                y: 0
+            }
+            this.width = 30;
+            this.height = 30;
+        }
+        draw() {
+            c.fillStyle = 'red'
+            c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+
+        update() {
+            this.draw();
+            this.position.y += this.velocity.y;
+            this.position.x += this.velocity.x;
+
+            if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity;
+            } else this.velocity.y = 0;
+        }
+    }
+
+    class Platform {
+        constructor(x,y,image) {
+            this.position = {
+                x:x,
+                y:y
+            }
+            this.image = image;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        draw() {
+            c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height)
+        }
+    }
+
+    const imageBrick = document.createElement('img');
+    imageBrick.src = 'assets/images/brick.png';
+
+    const imageFloor = document.createElement('img');
+    imageFloor.src = 'assets/images/bloque.png';
+
+    const imageQuestion = document.createElement('img');
+    imageQuestion.src = 'assets/images/question-block.png'
+
+    const player = new Player();
+    const platforms = [new Platform(0,370,imageFloor),
+        new Platform(50,370,imageFloor),
+        new Platform(100,370,imageFloor),
+        new Platform(150,370,imageFloor),
+        new Platform(200,370,imageFloor),
+        new Platform(250,370,imageFloor),
+        new Platform(100,100,imageQuestion),
+        new Platform(150,230,imageQuestion),
+        new Platform(200,100,imageQuestion),
+        new Platform(250,230,imageQuestion)]
+
+    const keys = {
+        right: {
+            pressed: false
+        },
+        left: {
+            pressed: false
+        }
+    }
+
+    function animate() {
+        if (paginas[numPagina] === '.page43') {
+            requestAnimationFrame(animate);
+        } else {  
+            return;
+        }
+        c.clearRect(0,0,canvas.width, canvas.height)
+        console.log('go')
+        platforms.forEach(platform => {
+            platform.draw();
+        })
+        player.update();
+
+        if (keys.right.pressed && player.position.x < 300-player.width) {
+            player.velocity.x = 5;
+        } else if (keys.left.pressed && player.position.x > 0) {
+            player.velocity.x = -5;
+        } else {
+            player.velocity.x = 0;
+        }
+        
+        let brickCounter = 0;
+        platforms.forEach(platform => {
+            if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 0;
+            } else if (player.position.y >= platform.position.y + platform.height && player.position.y + player.velocity.y <= platform.position.y + platform.height && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+                player.velocity.y = 5;
+                switch (brickCounter) {
+                    case 6:
+                        document.querySelector('.def-tip-1').classList.remove('inactive');
+                        document.querySelector('.def-tip-2').classList.add('inactive');
+                        document.querySelector('.def-tip-3').classList.add('inactive');
+                        document.querySelector('.def-tip-4').classList.add('inactive');
+                        break;
+                    case 7:
+                        document.querySelector('.def-tip-1').classList.add('inactive');
+                        document.querySelector('.def-tip-2').classList.remove('inactive');
+                        document.querySelector('.def-tip-3').classList.add('inactive');
+                        document.querySelector('.def-tip-4').classList.add('inactive');
+                        break;
+                    case 8:
+                        document.querySelector('.def-tip-1').classList.add('inactive');
+                        document.querySelector('.def-tip-2').classList.add('inactive');
+                        document.querySelector('.def-tip-3').classList.remove('inactive');
+                        document.querySelector('.def-tip-4').classList.add('inactive');
+                        break;
+                    case 9:
+                        document.querySelector('.def-tip-1').classList.add('inactive');
+                        document.querySelector('.def-tip-2').classList.add('inactive');
+                        document.querySelector('.def-tip-3').classList.add('inactive');
+                        document.querySelector('.def-tip-4').classList.remove('inactive');
+                        break;
+                    default:
+                        document.querySelector('.def-tip-1').classList.add('inactive');
+                        document.querySelector('.def-tip-2').classList.add('inactive');
+                        document.querySelector('.def-tip-3').classList.add('inactive');
+                        document.querySelector('.def-tip-4').classList.add('inactive');
+                        break;
+                }
+            }
+            brickCounter +=1;
+        })
+    }
+    animate();
+
+    window.addEventListener('keydown', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = true;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = true;
+                break;
+            case 'ArrowUp':
+                player.velocity.y -= 20;
+                break;
+            case 'ArrowDown':
+                break;
+        }
+    })
+    window.addEventListener('keyup', (event)=>{
+        switch (event.key) {
+            case 'ArrowLeft':
+                keys.left.pressed = false;
+                break;
+            case 'ArrowRight':
+                keys.right.pressed = false;
+                break;
+            case 'ArrowUp':
+                break;
+            case 'ArrowDown':
+                break;
+        }
     })
 }
