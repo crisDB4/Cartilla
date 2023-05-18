@@ -524,7 +524,7 @@ function page5() {
 }
 
 function page6() {
-    document.querySelector('.video-cactus').src = 'https://www.youtube.com/embed/XcCDi1UPpNg?controls=0';
+    document.querySelector('.video-cactus').src = 'https://www.youtube.com/embed/18-bMttK_j4?controls=0';
 }
 
 function allowDrop(ev) {
@@ -739,9 +739,9 @@ function page8() {
                             const pipePage = document.querySelector('.page8')
                             pipePage.classList.add('inactive')
                             if(pipeCounter1 === 0){
-                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/KpwSV1QBd8M';
+                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/ohq20xDRjr0';
                             } else {
-                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/n2qICHoBv48';
+                                document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/QL5-xyGQCtA';
                             }
                         }
                         pipeCounter1+=1;
@@ -1323,7 +1323,7 @@ function page12() {
                             const pipePage = document.querySelector('.page12')
                             pipePage.classList.add('inactive')
                             if(pipeCounter1 === 0){
-                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/ndS9L6CKCOA';
+                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/2U68qBekItE';
                             } else {
                                 document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/P7JhmTL9g7c';
                             }
