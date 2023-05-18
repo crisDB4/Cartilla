@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.nivel3-9','.nivel3-10'];
+const paginas = ['.page1','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10'];
 let numPagina = 0;
 
 /* Cambiar páginas */
@@ -184,6 +184,27 @@ function switchPages(operation) {
         case '.page31':
             page31();
             break; 
+        case '.page33':
+            page33();
+            break; 
+        case '.page34':
+            page34();
+            break; 
+        case '.page35':
+            page35();
+            break; 
+        case '.page36':
+            page36();
+            break;
+        case '.page37':
+            page37();
+            break;
+        case '.page39':
+            page39();
+            break;
+        case '.page40':
+            page40();
+            break;
     }
 }
 
@@ -1323,7 +1344,7 @@ function page12() {
                             const pipePage = document.querySelector('.page12')
                             pipePage.classList.add('inactive')
                             if(pipeCounter1 === 0){
-                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/KZoRLSolyx4';
+                                document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/e09zoT6-G9A';
                             } else {
                                 document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/P7JhmTL9g7c';
                             }
@@ -2521,5 +2542,110 @@ function page31() {
             case 'ArrowDown':
                 break;
         }
+    })
+}
+
+function allowDrop32(ev) {
+    ev.preventDefault();
+}
+
+function drag32(ev) {
+    ev.dataTransfer.setData("text", ev.target.classList);
+}
+
+function drop32(ev){
+    var data = ev.dataTransfer.getData("text");
+    if(ev.target.classList[0].includes("rojo-drop") &&  data.includes("rojo-drop") || ev.target.classList[0].includes("naranja-drop") &&  data.includes("naranja-drop") || ev.target.classList[0].includes("amarillo-drop") &&  data.includes("amarillo-drop") || ev.target.classList[0].includes("verde-drop") &&  data.includes("verde-drop") || ev.target.classList[0].includes("azul-drop") &&  data.includes("azul-drop") || ev.target.classList[0].includes("morado-drop") &&  data.includes("morado-drop")) {
+        ev.target.appendChild(document.querySelector(`.${data}`))
+    }
+}
+
+function page33() {
+    document.querySelector('.video-varon').src = 'https://www.youtube.com/embed/jCVMXhx3SsA';
+}
+
+const formPage34 = document.querySelector('.page34-form')
+const btnPage34 = document.querySelector('.btn-page-34');
+const txtPage341 = document.querySelector('.page34-txt-1')
+const txtPage342 = document.querySelector('.page34-txt-2')
+const txtPage343 = document.querySelector('.page34-txt-3')
+const txtPage344 = document.querySelector('.page34-txt-4')
+const txtPage345 = document.querySelector('.page34-txt-5')
+const txtPage346 = document.querySelector('.page34-txt-6')
+const changeTextPage34 = document.querySelector('.changeTextPage34')
+
+function page34() {
+    btnPage34.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage34.innerText = `Listo! Tus respuestas fueron: 
+                \n¿Por qué es LGBTIQ?: ${txtPage341.value}
+                \n¿De qué trata la canción?: ${txtPage342.value}
+                \n¿En qué se inspira la canción?: ${txtPage343.value}
+                \n¿Qué idea tenías antes sobre esta comunidad?: ${txtPage344.value}
+                \n¿Qué idea tienes ahora sobre esta comunidad?: ${txtPage345.value}`;
+                formPage34.remove();
+    })
+}
+
+function page35() {
+    document.querySelector('.video-dani').src = 'https://www.youtube.com/embed/-F7vsaexLIg';
+}
+function page36() {
+    document.querySelector('.video-cancion1').src = 'https://www.youtube.com/embed/upIaPnI1H_4';
+    document.querySelector('.video-cancion2').src = 'https://www.youtube.com/embed/QdNQ8V-P1k8';
+}
+
+const formPage37 = document.querySelector('.page37-form')
+const btnPage37 = document.querySelector('.btn-page-37');
+const txtPage371 = document.querySelector('.page37-txt-1')
+const changeTextPage37 = document.querySelector('.changeTextPage37')
+
+function page37() {
+    btnPage37.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage37.innerText = `Listo! Tus respuestas fueron: \n${txtPage371.value}`;
+                formPage37.remove();
+    })
+}
+
+function allowDrop38(ev) {
+    ev.preventDefault();
+}
+
+function drag38(ev) {
+    ev.dataTransfer.setData("text", ev.target.classList);
+}
+
+function drop38(ev){
+    var data = ev.dataTransfer.getData("text");
+    if(ev.target.classList[0].includes("igualdad-drop") &&  data.includes("igualdad-drop") || ev.target.classList[0].includes("libertad-drop") &&  data.includes("libertad-drop") || ev.target.classList[0].includes("auto-drop") &&  data.includes("auto-drop") || ev.target.classList[0].includes("estereotipos-drop") &&  data.includes("estereotipos-drop") || ev.target.classList[0].includes("empodera-drop") &&  data.includes("empodera-drop") || ev.target.classList[0].includes("respeto-drop") &&  data.includes("respeto-drop")) {
+        ev.target.appendChild(document.querySelector(`.${data}`))
+    }
+}
+
+const formPage39 = document.querySelector('.page39-form')
+const btnPage39 = document.querySelector('.btn-page-39');
+const txtPage391 = document.querySelector('.page39-txt-1')
+const changeTextPage39 = document.querySelector('.changeTextPage39')
+
+function page39() {
+    btnPage39.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage39.innerText = `Listo! Tus respuestas fueron: \n${txtPage391.value}`;
+                formPage39.remove();
+    })
+}
+
+
+const formPage40 = document.querySelector('.page40-form')
+const btnPage40 = document.querySelector('.btn-page-40');
+const txtPage401 = document.querySelector('.page40-txt-1')
+const changeTextPage40 = document.querySelector('.changeTextPage40')
+
+function page40() {
+    btnPage40.addEventListener('click', function (event) {
+        event.preventDefault();
+                changeTextPage40.innerText = `Listo! Tus respuestas fueron: \n${txtPage401.value}`;
+                formPage40.remove();
     })
 }
