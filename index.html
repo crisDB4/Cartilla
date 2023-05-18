@@ -347,6 +347,44 @@
             margin: 10px;
         }
 
+        .page-with-input p {
+            margin: 6px;
+            font-size: 20px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
+        }
+        .page-with-input form button {
+            width: auto;
+            height: auto;
+            font-size: 16px;
+            text-align: center;
+            padding: 8px 4px;
+            margin: 12px;
+            background: var(--darkerblue);
+            border: 1px solid var(--darkerblue);
+            color: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+        }
+
+        .page-with-input form button:hover {
+            color: var(--darkerblue);
+            background: var(--white);
+            border: 1px solid var(--darkerblue);
+        }
+        .page-with-input form textarea{
+            width: 250px;
+            padding: 4px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--white);
+            font-size: 16px;
+            font-family: 'VT323', monospace;
+            resize: none;
+            box-shadow: 2px 4px 10px grey;
+            height: 16px;
+        }
         /* page 5 */
         .page5 {
             width: 100%;
@@ -355,7 +393,8 @@
             grid-template-rows: auto 1fr;
             justify-items: center;
         }
-        .page5 p:nth-child(1) {
+        .page5 p:nth-child(1),
+        .page-with-canvas p:nth-child(1) {
             margin: 20px 20px 5px 20px;
             font-size: 20px;
             color: var(--white);
@@ -647,7 +686,7 @@
                 <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
                 <canvas class="canvas3" width="300" height="420"></canvas>
             </div>
-            <div class="page11 inactive">
+            <div class="page11 page-with-input inactive">
                 <p class="changeTextPage11">Para obtener la bandera, deberás demostrar tu capacidad para construir tu mundo interior, así que responde las siguientes preguntas:</p>
                 <form action="" class="page11-form">
                     <p>¿Qué sentí al escuchar la canción?</p>
@@ -666,7 +705,7 @@
                 <p>Misión: Supera tus límites.</p>
                 <p>Tiempo en misión: 20 minutos</p>
             </div>
-            <div class="page12 inactive">
+            <div class="page12 page-with-canvas inactive">
                 <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
                 <canvas class="canvas4" width="300" height="420"></canvas>
             </div>
@@ -695,7 +734,7 @@
                     <div class="mario-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mario</div>
                 </div>
             </div>
-            <div class="page16 inactive">
+            <div class="page16 page-with-canvas inactive">
                 <p>Ahora desafía lo que creías saber, ¡A romper bloques!</p>
                 <p class="def-roles inactive definicion">Roles de género: <br> Son los comportamientos y labores que se espera que cumplas, dependiendo si eres hombre o mujer, por ejemplo, se piensa erróneamente que solo los hombres toman las decisiones importantes en el hogar, mientras que las mujeres se deben dedicar a las tareas del hogar o cuidado de los niños.</p>
                 <p class="def-estereotipos inactive definicion">Estereotipos de género:
@@ -712,7 +751,7 @@
                     <h4>¡Desde ahora no verás el mundo igual!</h4>
                 </div>
             </div>
-            <div class="page18 inactive">
+            <div class="page18 page-with-input inactive">
                 <p class="changeTextPage18">¡Has superado tus límites y estás más cerca de la bandera! Para poder completar tu misión deberás responder las siguientes preguntas:</p>
                 <form action="" class="page18-form">
                     <p>¿Qué estereotipos reconocí en la canción?</p>
@@ -740,7 +779,7 @@
                     <p>Es una forma de control que se muestra de muchas maneras y afecta el bienestar de la persona que recibe el maltrato o violencia.</p>
                 </div>
             </div>
-            <div class="page20 inactive">
+            <div class="page20 page-with-canvas inactive">
                 <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
                 <canvas class="canvas6" width="300" height="420"></canvas>
             </div>
@@ -749,7 +788,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-violencia" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page22 inactive">
+            <div class="page22 page-with-input inactive">
                 <p class="changeTextPage22">Finalmente para avanzar a la siguiente misión, en cada cuadro menciona una frase de esta canción y explicara por qué las elegiste</p>
                 <form action="" class="page22-form">
                     <p>Escribe la primera frase y la justificación</p>
@@ -764,7 +803,7 @@
                 <p>Misión: Conocer la oscuridad.</p>
                 <p>Tiempo en Misión: 20 minutos</p>
             </div>
-            <div class="page23 inactive">
+            <div class="page23 page-with-input inactive">
                 <p class="changeTextPage23">Responde a la siguiente pregunta</p>
                 <form action="" class="page23-form">
                     <p>¿cuáles tipos de violencia crees que existen?</p>
@@ -772,7 +811,7 @@
                     <button class="btn-page-23">Listo!</button>
                 </form>
             </div>
-            <div class="page24 inactive">
+            <div class="page24 page-with-canvas inactive">
                 <p>Vamos a conocer los tipos de violencia, ¡A romper bloques!</p>
                 <p class="def-violencia-1 inactive definicion">Violencia económica: Es la acción que provoca una disminución o por debajeo de lo que logra tener una persona en asuntos económicos, acompañado de retención de dinero y humillación.</p>
                 <p class="def-violencia-2 inactive definicion">Violencia Psicológica: Cualquier acto que dañe la estabilidad emocional de las personas, en esto se ve reflejado palabras de desprecio, humillaciones, abandono, infidelidad, rechazo y marginación, lo cual genera tristeza.</p>
@@ -785,7 +824,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-violencia2" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page26 inactive">
+            <div class="page26 page-with-input inactive">
                 <p class="changeTextPage26">Para poder avanzar, escribirás qué tipos de violencia se mencionaron en la canción y darás un ejemplo de cada una.</p>
                 <form action="" class="page26-form">
                     <textarea class="page26-txt-1 textFormat"></textarea>
@@ -802,7 +841,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-miedo" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page28 inactive">
+            <div class="page28 page-with-canvas inactive">
                 <p>A continuación vas encontrar información respecto a los contextos donde se da la violencia basada en género. ¡A romper bloques!</p>
                 <p class="def-contexto-1 inactive definicion">Calle: Realizan miradas, comentarios y actos que no te hacen sentir cómodo</p>
                 <p class="def-contexto-2 inactive definicion">Familia o casa: pueden afectar física, psicológicamente y económicamente</p>
@@ -812,7 +851,7 @@
                 <p class="def-contexto-6 inactive definicion">Pareja: Se pueden generar agresiones, físicas, psicológicas y económicas, esto puede afectar el bienestar de la persona agredida.</p> 
                 <canvas class="canvas8" width="300" height="420"></canvas>
             </div>
-            <div class="page29 inactive">
+            <div class="page29 page-with-input inactive">
                 <p class="changeTextPage29">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page29-form">
                     <textarea class="page29-txt-1 textFormat"></textarea>
@@ -827,7 +866,7 @@
                 <p>Misión: Revoluciona tu pensamiento</p>
                 <p>Tiempo en Misión: 30 minutos</p>
             </div>
-            <div class="page30 inactive">
+            <div class="page30 page-with-input inactive">
                 <p class="changeTextPage30">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page30-form">
                     <div>
@@ -857,7 +896,7 @@
                     <button class="btn-page-30">Listo!</button>
                 </form>
             </div>
-            <div class="page31 inactive">
+            <div class="page31 page-with-canvas inactive">
                 <p>Ahora, revoluciona tu pensamiento. Avanza y descubre que tiene cada bloque para ti</p>
                 <p class="def-lgb-1 inactive definicion">L: Lesbianas: Mujer que siente atracción física, emocional y romántica continuamente hacia las mujeres.</p>
                 <p class="def-lgb-2 inactive definicion"> G: Gays: Hombre que siente una atracción física, emocional y romántica continuamente hacia los hombres.</p>
@@ -891,7 +930,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-varon" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page34 inactive">
+            <div class="page34 page-with-input inactive">
                 <p class="changeTextPage34">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page34-form">
                     <div>
@@ -933,7 +972,7 @@
                 <iframe class="video-cancion1" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
                 <iframe class="video-cancion2" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page37 inactive">
+            <div class="page37 page-with-input inactive">
                 <p class="changeTextPage37">¡Genial! Es hora de usar una vez más tus herramientas mentales, reflexiona sobre cómo se presentan las masculinidades y feminidades en estas canciones (“Iguales” de Diego Torres y “Soy mia” de Natti Natasha y kany García) respondiendo ¿Qué estereotipos de género identificas? :</p>
                 <form action="" class="page37-form">
                     <textarea class="page37-txt-1 textFormat"></textarea>
@@ -965,14 +1004,14 @@
                     <div class="respeto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
                 </div>
             </div>
-            <div class="page39 inactive">
+            <div class="page39 page-with-input inactive">
                 <p class="changeTextPage39">¿crees que debe existir una relación igualitaria entre hombres y mujeres? :</p>
                 <form action="" class="page39-form">
                     <textarea class="page39-txt-1 textFormat"></textarea>
                     <button class="btn-page-39">Listo!</button>
                 </form>
             </div>
-            <div class="page40 inactive">
+            <div class="page40 page-with-input inactive">
                 <p class="changeTextPage40">¡Estás a un solo paso de obtener tu bandera! Junta todas tus herramientas y poderes para despertar tu oído musical. Crea una pequeña playlist de canciones que conozcas de diferentes artistas y géneros que desafíen los estereotipos de género:</p>
                 <form action="" class="page40-form">
                     <textarea class="page40-txt-1 textFormat"></textarea>
@@ -989,14 +1028,14 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-10" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page42 inactive">
+            <div class="page42 page-with-input inactive">
                 <p class="changeTextPage42">Si usted fuera el protagonista del video, ¿qué haría? </p>
                 <form action="" class="page42-form">
                     <textarea class="page42-txt-1 textFormat"></textarea>
                     <button class="btn-page-42">Listo!</button>
                 </form>
             </div>
-            <div class="page43 inactive">
+            <div class="page43 page-with-canvas inactive">
                 <p>¡Genial! Ahora, conoce tus caminos de protección para ayudarte a ti mismo o a tus amigos en cualquier situación, ¡Vamos! </p>
                 <p class="def-tip-1 inactive definicion">Tienes sentimientos de dolor, sufrimiento, ira, miedo, inseguridad constantemente.</p>
                 <p class="def-tip-2 inactive definicion">Hay afectación en los hábitos de sueño, por ejemplo, duermes mucho o duermes muy poco.</p>
@@ -1004,7 +1043,7 @@
                 <p class="def-tip-4 inactive definicion">Tienes cambios drásticos de humor entre la ira, la tristeza, el llanto y la felicidad.</p>
                 <canvas class="canvas43" width="300" height="420"></canvas>
             </div>
-            <div class="page44 inactive">
+            <div class="page44 page-with-canvas inactive">
                 <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
                 <p class="text-ups inactive">Ups! mala elección</p>
                 <canvas class="canvas44" width="300" height="420"></canvas>
@@ -1026,7 +1065,7 @@
                     <div class="quinto-drop" ondrop="drop45(event)" ondragover="allowDrop45(event)"> Quinto</div>
                 </div>
             </div>
-            <div class="page46 inactive">
+            <div class="page46 page-with-canvas inactive">
                 <p>Ahora, revoluciona tu pensamiento. Avanza y descubre que tiene cada bloque para ti</p>
                 <p class="def-ayuda-1 inactive definicion">Policia</p>
                 <p class="def-ayuda-2 inactive definicion">Comisaria de familia</p>
@@ -1036,7 +1075,7 @@
                 <p class="def-ayuda-6 inactive definicion"> Personeria municipal</p>
                 <canvas class="canvas46" width="300" height="420"></canvas>
             </div>
-            <div class="page47 inactive">
+            <div class="page47 page-with-canvas inactive">
                 <p>Para finalizar la mission, deberas tomar una decision, elige la canción que deseas escuchar, de ella depende el éxito de tu misión</p>
                 <canvas class="canvas47" width="300" height="420"></canvas>
             </div>
@@ -1045,7 +1084,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="song-choose-page47" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page49 inactive">
+            <div class="page49 page-with-input inactive">
                 <p class="changeTextPage49">Responde las siguientes preguntas:</p>
                 <form action="" class="page49-form">
                     <p>Si usted fuera el protagonista del video, ¿qué haría? </p>
