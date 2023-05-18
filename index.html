@@ -453,7 +453,7 @@
             margin: 0;
         }
 
-        .page7 {
+        .page-with-drag {
             width: 100%;
             height: 100%;
             display: grid;
@@ -464,11 +464,34 @@
             color: var(--white);
         }
 
-        .page7 p{
+        .page-with-drag p{
             margin: 20px 20px 5px 20px;
             font-size: 20px;
             color: var(--white);
             text-shadow: 0px 1px var(--darkerblue);
+            cursor: grab;
+        }
+        .page-with-drag p:nth-child(1){
+            text-align: justify;
+            cursor: default;
+        }
+        .page-with-drag .drag-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .page-with-drag .drop-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 8px;
+        }
+        .page-with-drag img {
+            width: 50px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .page-with-drag .drop-container div {
+            padding: 8px;
+            font-size: 24px;
         }
 
         /* page 8 */
@@ -652,7 +675,7 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="video-cactus" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page7 inactive">
+            <div class="page7 page-with-drag  inactive">
                 <p> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
                 <div class="drag-container">
                     <p class="organos-sexo-drop" draggable="true" ondragstart="drag(event)">Organos sexuales</p>
@@ -714,10 +737,10 @@
                 <img src="./assets/images/mario-main.png" alt="" class="character-animation">
                 <iframe class="song-choose-page12" src="" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
-            <div class="page14 inactive">
-                <p>¿Posees ideas que limitan tu visión del mundo?, si quieres responder está pregunta, ¡deberás desafiarte!</p>
+            <div class="page14 niveles inactive">
+                <h2>¿Posees ideas que limitan tu visión del mundo?, si quieres responder está pregunta, ¡deberás desafiarte!</h2>
             </div>
-            <div class="page15 inactive">
+            <div class="page15 page-with-drag inactive">
                 <p> Elige las palabras que le pertenecen al personaje ¡Veámoslo!</p>
                 <div class="drag-container">
                     <p class="amor-drop" draggable="true" ondragstart="drag15(event)">Amor</p>
@@ -728,10 +751,14 @@
                     <p class="azul-drop" draggable="true" ondragstart="drag15(event)">Azul</p>
                 </div>
                 <div class="drop-container">
-                    <img src="./assets/images/peach-main.png" alt="">
-                    <div class="peach-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Peach</div>
-                    <img src="./assets/images/mario-main.png" alt="">
-                    <div class="mario-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mario</div>
+                    <div>
+                        <img src="./assets/images/peach-main.png" alt="">
+                    <div class="peach-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Peach</div>
+                    </div>
+                    <div>
+                        <img src="./assets/images/mario-main.png" alt="">
+                    <div class="mario-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Mario</div>
+                    </div>
                 </div>
             </div>
             <div class="page16 page-with-canvas inactive">
