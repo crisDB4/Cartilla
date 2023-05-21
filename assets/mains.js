@@ -241,6 +241,7 @@ btnNext.addEventListener('click',()=>switchPages('next'));
 btnPrev.addEventListener('click',()=>switchPages('prev'));
 
 function page1() {
+    document.querySelector('.aio').play();
     let animationIntervalMain;
     clearInterval(animationIntervalMain);
     function elementosPagina1(classPage) {
@@ -312,7 +313,10 @@ function page1() {
 }
 page1();
 
+
+
 function pageConcep() {
+    
     let animationIntervalMain;
     clearInterval(animationIntervalMain);
     function elementosPagina1(classPage) {
