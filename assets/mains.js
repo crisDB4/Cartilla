@@ -116,6 +116,9 @@ function switchPages(operation) {
         case '.page1':
             page1();
             break;
+        case '.conceptualizacion':
+            pageConcep();
+            break;
         case '.page2':
             page2();
             break;
@@ -238,19 +241,23 @@ btnNext.addEventListener('click',()=>switchPages('next'));
 btnPrev.addEventListener('click',()=>switchPages('prev'));
 
 function page1() {
+    let animationIntervalMain;
+    clearInterval(animationIntervalMain);
     function elementosPagina1(classPage) {
         const page = document.querySelector(classPage);
-        let topNube = 130;
+        let topNube = 60;
         let leftNube = -30;
         for(let i = 0; i <2; i++) {
             const nube = document.createElement("img");
             nube.src = "assets/images/nube.png";
-            nube.classList.add('nube');
+            nube.classList.add(`nube${i}`);
+            nube.classList.add(`nube`);
             nube.style.top = topNube + "px";
             nube.style.left = leftNube + "px";
             page.append(nube);
-            topNube=250;
+            topNube=280;
             leftNube = 180;
+
         }
     
         for(let i = 0; i < 5; i++) {
@@ -260,10 +267,121 @@ function page1() {
             bloque.style.left = (60*i) + "px";
             page.append(bloque);
         }
+
+        const pipePage = document.createElement("img");
+        pipePage.src = "assets/images/small-pipe.png";
+        pipePage.classList.add('pipe');
+        page.append(pipePage);
+
+        const beanPage = document.createElement("img");
+        beanPage.src = "assets/images/beanstalk.png";
+        beanPage.classList.add('beanPage');
+        page.append(beanPage);
+
+        let bottomBean = 60;
+        let leftBean = 10;
+        for(let i = 0; i <2; i++) {
+            const beanPage = document.createElement("img");
+            beanPage.src = "assets/images/beanstalk.png";
+            beanPage.classList.add(`beanPage`);
+            beanPage.style.bottom = bottomBean + "px";
+            beanPage.style.left = leftBean + "px";
+            page.append(beanPage);
+            bottomBean=110;
+
+        }
+
+    let movimiento = 0;
+    let movimiento2 = -180;
+    clearInterval(animationIntervalMain);
+    animationIntervalMain = setInterval(() => {
+        const imagenNube = document.querySelector('.nube0')
+        const imagenNube2 = document.querySelector('.nube1')
+        imagenNube.style.left = `${movimiento}px`;
+        imagenNube2.style.left = `${movimiento2}px`;
+        movimiento+=1;
+        movimiento2+=1;
+        if(movimiento>=160) {
+            clearInterval(animationIntervalMain);
+        }
+        //reset the position to show first sprite after the last one
+    }, 100);
+
     }
     elementosPagina1('.page1');
 }
 page1();
+
+function pageConcep() {
+    let animationIntervalMain;
+    clearInterval(animationIntervalMain);
+    function elementosPagina1(classPage) {
+        const page = document.querySelector(classPage);
+        let topNube = 60;
+        let leftNube = -30;
+        for(let i = 0; i <2; i++) {
+            const nube = document.createElement("img");
+            nube.src = "assets/images/nube.png";
+            nube.classList.add(`nube${i}`);
+            nube.classList.add(`nube`);
+            nube.style.top = topNube + "px";
+            nube.style.left = leftNube + "px";
+            page.append(nube);
+            topNube=280;
+            leftNube = 180;
+
+        }
+    
+        for(let i = 0; i < 5; i++) {
+            const bloque = document.createElement("img");
+            bloque.src = "assets/images/bloque.png";
+            bloque.classList.add('bloque');
+            bloque.style.left = (60*i) + "px";
+            page.append(bloque);
+        }
+
+        const pipePage = document.createElement("img");
+        pipePage.src = "assets/images/small-pipe.png";
+        pipePage.classList.add('pipe');
+        page.append(pipePage);
+
+        const beanPage = document.createElement("img");
+        beanPage.src = "assets/images/beanstalk.png";
+        beanPage.classList.add('beanPage');
+        page.append(beanPage);
+
+        let bottomBean = 60;
+        let leftBean = 10;
+        for(let i = 0; i <2; i++) {
+            const beanPage = document.createElement("img");
+            beanPage.src = "assets/images/beanstalk.png";
+            beanPage.classList.add(`beanPage`);
+            beanPage.style.bottom = bottomBean + "px";
+            beanPage.style.left = leftBean + "px";
+            page.append(beanPage);
+            bottomBean=110;
+
+        }
+
+    let movimiento = 0;
+    let movimiento2 = -180;
+    clearInterval(animationIntervalMain);
+    animationIntervalMain = setInterval(() => {
+        const imagenNube = document.querySelector('.nube0')
+        const imagenNube2 = document.querySelector('.nube1')
+        imagenNube.style.left = `${movimiento}px`;
+        imagenNube2.style.left = `${movimiento2}px`;
+        movimiento+=1;
+        movimiento2+=1;
+        if(movimiento>=160) {
+            clearInterval(animationIntervalMain);
+        }
+        //reset the position to show first sprite after the last one
+    }, 100);
+
+    }
+    elementosPagina1('.conceptualizacion');
+}
 
 function page2(){
     function asignaPersonaje(personajePrin) {
@@ -431,7 +549,19 @@ function page4() {
     })
 }
 
+var walkingSprite1 = new Image();
+walkingSprite1.src = './assets/images/mario-walk-1.png';
 
+var walkingSprite2 = new Image();
+walkingSprite2.src = './assets/images/mario-walk-2.png';
+
+var walkingSprite3 = new Image();
+walkingSprite3.src = './assets/images/mario-walk-3.png';
+
+let staticSprite = new Image();
+staticSprite.src = './assets/images/mario-main.png';
+
+let walkingSprites = [walkingSprite1,walkingSprite2,walkingSprite3];
 
 function page5() {
     const canvas = document.querySelector('canvas');
@@ -452,8 +582,8 @@ function page5() {
             this.height = 30;
         }
         draw() {
-            c.fillStyle = 'red'
-            c.fillRect(this.position.x, this.position.y, this.width, this.height);
+            let sprite = staticSprite;
+            c.drawImage(sprite, this.position.x, this.position.y, this.width, this.height);
         }
 
         update() {
@@ -562,9 +692,11 @@ function page5() {
         switch (event.key) {
             case 'ArrowLeft':
                 keys.left.pressed = true;
+                player.isWalkingLeft = true;
                 break;
             case 'ArrowRight':
                 keys.right.pressed = true;
+                player.isWalkingRight = true;
                 break;
             case 'ArrowUp':
                 player.velocity.y -= 20;
@@ -577,9 +709,13 @@ function page5() {
         switch (event.key) {
             case 'ArrowLeft':
                 keys.left.pressed = false;
+                player.isWalkingLeft = false;
+                player.currentSprite  = 0;
                 break;
             case 'ArrowRight':
                 keys.right.pressed = false;
+                player.isWalkingRight = false;
+                player.currentSprite  = 0;
                 break;
             case 'ArrowUp':
                 break;

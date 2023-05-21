@@ -93,10 +93,22 @@
             width: 100%;
             height: 100%;
             display: grid;
-            grid-template-rows: 1fr 1fr;
             justify-items: center;
+            align-items: center;
+        }
+        .page1 h1 {
+            z-index: 2;
         }
 
+        .rojo {
+            color: #F05050;
+        }
+        .verde {
+            color: #308E25;
+        }
+        .rosado {
+            color: pink
+        }
         .bloque {
             width: 60px;
             object-Fit: 'cover';
@@ -107,10 +119,26 @@
             width: 150px;
             object-Fit: 'cover';
             position: absolute;
+            z-index: 1;
         }
         .moneda {
             width: 70px;
             object-fit: cover;
+        }
+        .pipe {
+            width: 70px;
+            object-Fit: 'cover';
+            position: absolute;
+            bottom: 60px;
+
+        }
+        .beanPage {
+            width: 50px;
+            object-fit: cover;
+            position: absolute;
+            bottom: 60px;
+            left: 10px;
+            z-index: 3;
         }
 
         .presentacion-mei {
@@ -494,6 +522,24 @@
             font-size: 24px;
         }
 
+        .page38 p{
+            margin: 8;
+            font-size: 16;
+        }
+        .page38 p:nth-child(1){
+            margin: 20px 20px 5px 20px;
+        }
+        .page38 .drop-container div {
+            padding: 8px;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            font-size: 12px;
+        }
+        .page38 img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
         /* page 8 */
         .page8 {
             width: 100%;
@@ -601,10 +647,13 @@
 </head>
 <body>
     <div class="container">
+        <audio hidden controls autoplay loop>
+            <source src="./assets/mariosound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
         <div class="book-container">
             <div class="page1">
-                <h1>Género Bros: El viaje hacia la igualdad</h1>
-                <img src="./assets/images/moneda.png" alt="" class="moneda">
+                <h1><span class="rojo">Género</span> <span class="verde">Bros</span>: El viaje hacia la <span class="rosado">igualdad</span></h1> 
             </div>
             <div class="conceptualizacion inactive">
                 <h1>Un salto a la comprensión. Navegando la violencia de Género</h1>
@@ -1006,7 +1055,7 @@
                     <button class="btn-page-37">Listo!</button>
                 </form>
             </div>
-            <div class="page38 inactive">
+            <div class="page38 page-with-drag inactive">
                 <p> Bien hecho, cada vez estas más cerca de alcanzar la bandera! Pon a prueba tus poderes y relaciona cada palabra clave con una imagen según como creas que corresponda</p>
                 <div class="drag-container">
                     <p class="este-empodera-drop" draggable="true" ondragstart="drag38(event)">Empoderamiento</p>
@@ -1017,18 +1066,30 @@
                     <p class="este-auto-drop" draggable="true" ondragstart="drag38(event)">Autoaceptación</p>
                 </div>
                 <div class="drop-container">
-                    <img src="./assets/images/igualdad.png" alt="">
-                    <div class="igualdad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
-                    <img src="./assets/images/libertad.png" alt="">
-                    <div class="libertad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
-                    <img src="./assets/images/autoaceptacion.png" alt="">
-                    <div class="auto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
-                    <img src="./assets/images/estereotipos.png" alt="">
-                    <div class="estereotipos-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
-                    <img src="./assets/images/empoderamiento.png" alt="">
-                    <div class="empodera-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
-                    <img src="./assets/images/respeto.png" alt="">
-                    <div class="respeto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>
+                    <div>
+                        <img src="./assets/images/igualdad.png" alt="">
+                        <div class="igualdad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
+                    <div>
+                        <img src="./assets/images/libertad.png" alt="">
+                        <div class="libertad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
+                    <div>
+                        <img src="./assets/images/autoaceptacion.png" alt="">
+                        <div class="auto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
+                    <div>
+                        <img src="./assets/images/estereotipos.png" alt="">
+                        <div class="estereotipos-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
+                    <div>
+                        <img src="./assets/images/empoderamiento.png" alt="">
+                        <div class="empodera-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
+                    <div>
+                        <img src="./assets/images/respeto.png" alt="">
+                        <div class="respeto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                    </div>
                 </div>
             </div>
             <div class="page39 page-with-input inactive">
