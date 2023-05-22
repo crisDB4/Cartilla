@@ -91,7 +91,23 @@ const rasgos = {
 let personaje = 'mario';
 const paginas = ['.page1','.conceptualizacion','.presentacion-mei','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49','.page51','.page50'];
 let numPagina = 0;
+const wasViewed = {
+    '.page1': false,
+    '.conceptualizacion': false,
+    '.presentacion-mei': false,
+    '.page6': false,
+    '.page9': false,
+    '.page13': false,
+    '.page21': false,
+    '.page25': false,
+    '.page27': false,
+    '.page33': false,
+    '.page35': false,
+    '.page36': false,
+    '.page41': false,
+    '.page48': false,
 
+}
 /* Cambiar páginas */
 function switchPages(operation) {
     if(operation==='next' && numPagina < paginas.length-1){
@@ -117,7 +133,10 @@ function switchPages(operation) {
             page1();
             break;
         case '.conceptualizacion':
-            pageConcep();
+            backgroundElementFn();
+            break;
+        case '.presentacion-mei':
+            backgroundElementFn();
             break;
         case '.page2':
             page2();
@@ -132,7 +151,7 @@ function switchPages(operation) {
             page5();
             break;
         case '.page6':
-            page6();
+            backgroundElementFn();
             break;
         case '.page7':
             page7();
@@ -149,6 +168,9 @@ function switchPages(operation) {
         case '.page12':
             page12();
             break;
+        case '.page13':
+            backgroundElementFn();
+            break;
         case '.page16':
             page16();
             break;
@@ -159,7 +181,7 @@ function switchPages(operation) {
             page20();
             break;
         case '.page21':
-            page21();
+            backgroundElementFn();
             break;
         case '.page22':
             page22();
@@ -171,13 +193,13 @@ function switchPages(operation) {
             page24();
             break;
         case '.page25':
-            page25();
+            backgroundElementFn();
             break;
         case '.page26':
             page26();
             break;    
         case '.page27':
-            page27();
+            backgroundElementFn();
             break;  
         case '.page28':
             page28();
@@ -192,16 +214,16 @@ function switchPages(operation) {
             page31();
             break; 
         case '.page33':
-            page33();
+            backgroundElementFn();
             break; 
         case '.page34':
             page34();
             break; 
         case '.page35':
-            page35();
+            backgroundElementFn();
             break; 
         case '.page36':
-            page36();
+            backgroundElementFn();
             break;
         case '.page37':
             page37();
@@ -213,7 +235,7 @@ function switchPages(operation) {
             page40();
             break;
         case '.page41':
-            page41();
+            backgroundElementFn();
             break;
         case '.page42':
             page42();
@@ -230,6 +252,9 @@ function switchPages(operation) {
         case '.page47':
             page47();
             break;
+        case '.page48':
+            backgroundElementFn();
+            break;
         case '.page49':
             page49();
             break;
@@ -240,65 +265,84 @@ btnNext.addEventListener('click',()=>switchPages('next'));
 
 btnPrev.addEventListener('click',()=>switchPages('prev'));
 
-function page1() {
-    document.querySelector('.aio').play();
-    document.querySelector('.aio').muted = false;
-    let animationIntervalMain;
-    clearInterval(animationIntervalMain);
-    function elementosPagina1(classPage) {
-        const page = document.querySelector(classPage);
-        let topNube = 60;
-        let leftNube = -30;
-        for(let i = 0; i <2; i++) {
-            const nube = document.createElement("img");
-            nube.src = "assets/images/nube.png";
-            nube.classList.add(`nube${i}`);
-            nube.classList.add(`nube`);
-            nube.style.top = topNube + "px";
-            nube.style.left = leftNube + "px";
-            page.append(nube);
-            topNube=280;
-            leftNube = 180;
+const music = document.querySelector('.listening-icon');
+const marioMusic = document.querySelector('.aio');
+let playPauseState = false
 
-        }
+music.addEventListener('click', ()=> {
+    playPauseState = !playPauseState;
+    if (playPauseState===true) {
+        document.querySelector('.aio').play();
+        music.src = "assets/images/sound-icon.png";
+    } else {
+        document.querySelector('.aio').pause();
+        music.src = "assets/images/no-sound-icon.png";
+    }
+})
+
+let animationIntervalMain;
+clearInterval(animationIntervalMain);
+function elementosPagina1(classPage) {
+    const page = document.querySelector(classPage);
+    const backgroundElements = document.createElement("div");
+    backgroundElements.classList.add('background-elements');
+    page.insertBefore(backgroundElements, page.firstChild);
+    classPage = classPage.substring(classPage.indexOf(".")+1)
+    let topNube = 60;
+    let leftNube = -30;
+    for(let i = 0; i <2; i++) {
+        const nube = document.createElement("img");
+        nube.src = "assets/images/nube.png";
+        nube.classList.add(`nube${i}-${classPage}`);
+        nube.classList.add(`nube`);
+        nube.style.top = topNube + "px";
+        nube.style.left = leftNube + "px";
+        backgroundElements.append(nube);
+        topNube=280;
+        leftNube = 180;
+
+    }
     
-        for(let i = 0; i < 5; i++) {
-            const bloque = document.createElement("img");
-            bloque.src = "assets/images/bloque.png";
-            bloque.classList.add('bloque');
-            bloque.style.left = (60*i) + "px";
-            page.append(bloque);
-        }
+    for(let i = 0; i < 5; i++) {
+        const bloque = document.createElement("img");
+        bloque.src = "assets/images/bloque.png";
+        bloque.classList.add(`bloque-${classPage}`);
+        bloque.classList.add('bloque');
+        bloque.style.left = (60*i) + "px";
+        backgroundElements.append(bloque);
+    }
 
-        const pipePage = document.createElement("img");
-        pipePage.src = "assets/images/small-pipe.png";
-        pipePage.classList.add('pipe');
-        page.append(pipePage);
+    const pipePage = document.createElement("img");
+    pipePage.src = "assets/images/small-pipe.png";
+    pipePage.classList.add(`pipe-${classPage}`);
+    pipePage.classList.add('pipe');
+    backgroundElements.append(pipePage);
 
+    const beanPage = document.createElement("img");
+    beanPage.src = "assets/images/beanstalk.png";
+    beanPage.classList.add(`beanPage-${classPage}`);
+    beanPage.classList.add('beanPage');
+    backgroundElements.append(beanPage);
+
+    let bottomBean = 60;
+    let leftBean = 10;
+    for(let i = 0; i <2; i++) {
         const beanPage = document.createElement("img");
         beanPage.src = "assets/images/beanstalk.png";
-        beanPage.classList.add('beanPage');
-        page.append(beanPage);
-
-        let bottomBean = 60;
-        let leftBean = 10;
-        for(let i = 0; i <2; i++) {
-            const beanPage = document.createElement("img");
-            beanPage.src = "assets/images/beanstalk.png";
-            beanPage.classList.add(`beanPage`);
-            beanPage.style.bottom = bottomBean + "px";
-            beanPage.style.left = leftBean + "px";
-            page.append(beanPage);
-            bottomBean=110;
-
-        }
+        beanPage.classList.add(`beanPage-${classPage}`);
+        beanPage.classList.add(`beanPage`);
+        beanPage.style.bottom = bottomBean + "px";
+        beanPage.style.left = leftBean + "px";
+        backgroundElements.append(beanPage);
+        bottomBean=110;
+    }
 
     let movimiento = 0;
     let movimiento2 = -180;
     clearInterval(animationIntervalMain);
     animationIntervalMain = setInterval(() => {
-        const imagenNube = document.querySelector('.nube0')
-        const imagenNube2 = document.querySelector('.nube1')
+        const imagenNube = document.querySelector(`.nube0-${classPage}`)
+        const imagenNube2 = document.querySelector(`.nube1-${classPage}`)
         imagenNube.style.left = `${movimiento}px`;
         imagenNube2.style.left = `${movimiento2}px`;
         movimiento+=1;
@@ -309,84 +353,48 @@ function page1() {
         //reset the position to show first sprite after the last one
     }, 100);
 
+}
+
+function page1() {
+    if (wasViewed[paginas[numPagina]] === false){
+        elementosPagina1(paginas[numPagina]);
+    } else {
+        const imagenNube = document.querySelector(`.nube0-page1`)
+        const imagenNube2 = document.querySelector(`.nube1-page1`)
+        imagenNube.style.left = `159px`;
+        imagenNube2.style.left = `-21px`;
     }
-    elementosPagina1('.page1');
+    wasViewed[paginas[numPagina]] = true;
 }
 page1();
 
 
 
-function pageConcep() {
-
-    let animationIntervalMain;
-    clearInterval(animationIntervalMain);
-    function elementosPagina1(classPage) {
-        const page = document.querySelector(classPage);
-        let topNube = 60;
-        let leftNube = -30;
-        for(let i = 0; i <2; i++) {
-            const nube = document.createElement("img");
-            nube.src = "assets/images/nube.png";
-            nube.classList.add(`nube${i}`);
-            nube.classList.add(`nube`);
-            nube.style.top = topNube + "px";
-            nube.style.left = leftNube + "px";
-            page.append(nube);
-            topNube=280;
-            leftNube = 180;
-
-        }
-    
-        for(let i = 0; i < 5; i++) {
-            const bloque = document.createElement("img");
-            bloque.src = "assets/images/bloque.png";
-            bloque.classList.add('bloque');
-            bloque.style.left = (60*i) + "px";
-            page.append(bloque);
-        }
-
-        const pipePage = document.createElement("img");
-        pipePage.src = "assets/images/small-pipe.png";
-        pipePage.classList.add('pipe');
-        page.append(pipePage);
-
-        const beanPage = document.createElement("img");
-        beanPage.src = "assets/images/beanstalk.png";
-        beanPage.classList.add('beanPage');
-        page.append(beanPage);
-
-        let bottomBean = 60;
-        let leftBean = 10;
-        for(let i = 0; i <2; i++) {
-            const beanPage = document.createElement("img");
-            beanPage.src = "assets/images/beanstalk.png";
-            beanPage.classList.add(`beanPage`);
-            beanPage.style.bottom = bottomBean + "px";
-            beanPage.style.left = leftBean + "px";
-            page.append(beanPage);
-            bottomBean=110;
-
-        }
-
-    let movimiento = 0;
-    let movimiento2 = -180;
-    clearInterval(animationIntervalMain);
-    animationIntervalMain = setInterval(() => {
-        const imagenNube = document.querySelector('.nube0')
-        const imagenNube2 = document.querySelector('.nube1')
-        imagenNube.style.left = `${movimiento}px`;
-        imagenNube2.style.left = `${movimiento2}px`;
-        movimiento+=1;
-        movimiento2+=1;
-        if(movimiento>=160) {
-            clearInterval(animationIntervalMain);
-        }
-        //reset the position to show first sprite after the last one
-    }, 100);
-
+function backgroundElementFn() {
+    const classPage = paginas[numPagina].substring(paginas[numPagina].indexOf(".")+1)
+    if (wasViewed[paginas[numPagina]] === false){
+        elementosPagina1(paginas[numPagina])
+    } else {
+        const imagenNube = document.querySelector(`.nube0-${classPage}`)
+        const imagenNube2 = document.querySelector(`.nube1-${classPage}`)
+        imagenNube.style.left = `159px`;
+        imagenNube2.style.left = `-21px`;
     }
-    elementosPagina1('.conceptualizacion');
+    wasViewed[paginas[numPagina]] = true;
 }
+function backgroundElementPageVideo(classVideo) {
+    const classPage = classVideo.substring(classVideo.indexOf(".")+1)
+    if (wasViewed[classVideo] === false){
+        elementosPagina1(classVideo)
+    } else {
+        const imagenNube = document.querySelector(`.nube0-${classPage}`)
+        const imagenNube2 = document.querySelector(`.nube1-${classPage}`)
+        imagenNube.style.left = `159px`;
+        imagenNube2.style.left = `-21px`;
+    }
+    wasViewed[classVideo] = true;
+}
+
 
 function page2(){
     function asignaPersonaje(personajePrin) {
@@ -730,9 +738,7 @@ function page5() {
     })
 }
 
-function page6() {
-    document.querySelector('.video-cactus').src = 'https://www.youtube.com/embed/18-bMttK_j4?controls=0';
-}
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -950,6 +956,7 @@ function page8() {
                             } else {
                                 document.querySelector('.song-choose').src = 'https://www.youtube.com/embed/QL5-xyGQCtA';
                             }
+                            backgroundElementPageVideo('.page9');
                         }
                         pipeCounter1+=1;
                     })
@@ -1534,8 +1541,10 @@ function page12() {
                             } else {
                                 document.querySelector('.song-choose-page12').src = 'https://www.youtube.com/embed/P7JhmTL9g7c';
                             }
+                            backgroundElementPageVideo('.page13');
                         }
                         pipeCounter1+=1;
+                        
                     })
                 }
                 break;
@@ -2053,9 +2062,7 @@ function page20() {
     })
 }
 
-function page21() {
-    document.querySelector('.video-violencia').src = 'https://www.youtube.com/embed/Pv0L_1irw4M';
-}
+
 
 const formPage22 = document.querySelector('.page22-form')
 const btnPage22 = document.querySelector('.btn-page-22');
@@ -2261,10 +2268,6 @@ function page24() {
     })
 }
 
-function page25() {
-    document.querySelector('.video-violencia2').src = 'https://www.youtube.com/embed/NGz1o46t9fo';
-}
-
 const formPage26 = document.querySelector('.page26-form')
 const btnPage26 = document.querySelector('.btn-page-26');
 const txtPage261 = document.querySelector('.page26-txt-1')
@@ -2278,9 +2281,6 @@ function page26() {
     })
 }
 
-function page27() {
-    document.querySelector('.video-miedo').src = 'https://www.youtube.com/embed/DS8Hlnso7mI';
-}
 
 function page28() {
     const canvas = document.querySelector('.canvas8');
@@ -2746,10 +2746,6 @@ function drop32(ev){
     }
 }
 
-function page33() {
-    document.querySelector('.video-varon').src = 'https://www.youtube.com/embed/jCVMXhx3SsA';
-}
-
 const formPage34 = document.querySelector('.page34-form')
 const btnPage34 = document.querySelector('.btn-page-34');
 const txtPage341 = document.querySelector('.page34-txt-1')
@@ -2773,13 +2769,7 @@ function page34() {
     })
 }
 
-function page35() {
-    document.querySelector('.video-dani').src = 'https://www.youtube.com/embed/-F7vsaexLIg';
-}
-function page36() {
-    document.querySelector('.video-cancion1').src = 'https://www.youtube.com/embed/zxBHJZ8swS0';
-    document.querySelector('.video-cancion2').src = 'https://www.youtube.com/embed/QdNQ8V-P1k8';
-}
+
 
 const formPage37 = document.querySelector('.page37-form')
 const btnPage37 = document.querySelector('.btn-page-37');
@@ -2834,10 +2824,6 @@ function page40() {
                 changeTextPage40.innerText = `Listo! Tus respuestas fueron: \n${txtPage401.value}`;
                 formPage40.remove();
     })
-}
-
-function page41() {
-    document.querySelector('.video-10').src = 'https://www.youtube.com/embed/1F2izz5JEUo';
 }
 
 const formPage42 = document.querySelector('.page42-form')
@@ -3665,6 +3651,7 @@ function page47() {
                             } else {
                                 document.querySelector('.song-choose-page47').src = 'https://www.youtube.com/embed/yU1gQw-RBj0';
                             }
+                            backgroundElementPageVideo('.page48');
                         }
                         pipeCounter1+=1;
                     })
