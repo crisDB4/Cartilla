@@ -782,6 +782,12 @@
             border:0;
             border-radius: 0;
         }
+        .page30 .title-input {
+            font-size: 18px;
+        }
+        .page30 p {
+            font-size: 16px;
+        }
         .page-with-input form {
             display: grid;
             align-items: center;
@@ -827,6 +833,17 @@
         }
         .page19 .text-page-19 {
             margin: 12px;
+        }
+
+        .no-denunciar {
+            position: absolute;
+            bottom: 120px;
+            right: 130px;
+        }
+        .denunciar {
+            position: absolute;
+            bottom: 120px;
+            right: 20px;
         }
 
         .fin-niveles {
@@ -875,7 +892,7 @@
             Your browser does not support the audio element.
         </audio>
         <audio class="contenido-audios" hidden controls>
-            <source src="" type="audio/mpeg">
+            <source src="./assets/recordings/nombre cartilla.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <div class="book-container">
@@ -1006,7 +1023,7 @@
             </div>
             <div class="nivel1-2 subniveles inactive">
                 <h1><span class="rojo">Nivel 2.</span><br> “Desafía las etiquetas”</h1>
-                <p><span class="verde">Misión:</span> Descubre tu fuerza interior.</p>
+                <p><span class="verde">Misión:</span> Desafía aquello que creías saber.</p>
                 <p><span class="rosado">Tiempo en Misión:</span> 20 minutos</p>
             </div>
             <div class="page4 inactive">
@@ -1286,7 +1303,7 @@
                 <p><span class="rosado">Tiempo en Misión:</span> 30 minutos</p>
             </div>
             <div class="page30 page-with-input inactive">
-                <p class="changeTextPage30 title-input">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <p class="changeTextPage30 title-input">¡Ok! Has obtenido muchas herramientas clave hasta este momento, ¿quieres obtener más? ¡Vamos! Escribe en cada cuadro la palabra que crees que corresponde a cada una de las letras:</p>
                 <form action="" class="page30-form">
                     <div>
                         <p>L</p>
@@ -1326,7 +1343,7 @@
                 <canvas class="canvas9" width="300" height="420"></canvas>
             </div>
             <div class="page32 page-with-drag inactive">
-                <p class="title-drag"> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
+                <p class="title-drag">¡Felicitaciones! ¿Quieres adquirir una nueva herramienta mental? Relaciona los colores que conforman la bandera LGBTIQ con el significado que consideres que corresponda</p>
                 <div class="drag-container">
                     <p class="vida-rojo-drop" draggable="true" ondragstart="drag32(event)">Representa la vida</p>
                     <p class="luz-amarillo-drop" draggable="true" ondragstart="drag32(event)">la luz del sol</p>
@@ -1352,7 +1369,7 @@
                 </div>
             </div>
             <div class="page34 page-with-input inactive">
-                <p class="changeTextPage34 title-input">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <p class="changeTextPage34 title-input">Usa tus herramientas y enfrenta los desafíos intelectuales de Mario Bros respondiendo a las siguientes preguntas:</p>
                 <form action="" class="page34-form">
                     <div>
                         <p>¿Por qué es LGBTIQ?</p>
@@ -1483,7 +1500,7 @@
                 </form>
             </div>
             <div class="page43 page-with-canvas inactive">
-                <p>¡Genial! Ahora, conoce tus caminos de protección para ayudarte a ti mismo o a tus amigos en cualquier situación, ¡Vamos! </p>
+                <p>¡Genial! Ahora, conoce tus caminos de protección para ayudarte a ti mismo o a tus amigos en cualquier situación, ¡Vamos!. ¿Cómo saber si soy víctima o si mi amigo lo es? </p>
                 <p class="def-tip-1 inactive definicion">Tienes sentimientos de dolor, sufrimiento, ira, miedo, inseguridad constantemente.</p>
                 <p class="def-tip-2 inactive definicion">Hay afectación en los hábitos de sueño, por ejemplo, duermes mucho o duermes muy poco.</p>
                 <p class="def-tip-3 inactive definicion">Hay afectación en los hábitos alimenticios, por ejemplo, comes mucho o por el contrario no comes nada.</p>
@@ -1491,8 +1508,10 @@
                 <canvas class="canvas43" width="300" height="420"></canvas>
             </div>
             <div class="page44 page-with-canvas inactive">
-                <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
+                <p>Has avanzado y haz adquirido un nuevo paquete de herramientas mentales, ahora imagina que has sido víctima de la oscuridad de Mario. Debes tomar una decisión: Denunciar o no denunciar.</p>
                 <p class="text-ups inactive"><span class="crimson">Ups!</span> mala elección</p>
+                <p class="no-denunciar">No denunciar</p>
+                <p class="denunciar">Denunciar</p>
                 <canvas class="canvas44" width="300" height="420"></canvas>
             </div>
             <div class="page45 page-with-drag inactive">
@@ -1513,7 +1532,7 @@
                 </div>
             </div>
             <div class="page46 page-with-canvas inactive">
-                <p>Ahora, revoluciona tu pensamiento. Avanza y descubre que tiene cada bloque para ti</p>
+                <p>Rompe los siguientes bloques para conocer las rutas de atención</p>
                 <p class="def-ayuda-1 inactive definicion">Policia</p>
                 <p class="def-ayuda-2 inactive definicion">Comisaria de familia</p>
                 <p class="def-ayuda-3 inactive definicion">Hospitales</p>

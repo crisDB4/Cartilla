@@ -213,7 +213,6 @@ function switchPages(operation) {
             elementosSubNivel(paginas[numPagina]);
             contenidoAudios.src = 'assets/recordings/apertura-nivel-8.mp3'
             contenidoAudios.play();
-            apertura-nivel-8
             break;
         case '.nivel3-9':
             elementosSubNivel(paginas[numPagina]);
@@ -226,6 +225,8 @@ function switchPages(operation) {
             contenidoAudios.play();
             break;
         case '.page1':
+            contenidoAudios.src = 'assets/recordings/nombre cartilla.mp3'
+            contenidoAudios.play();
             page1();
             break;
         case '.conceptualizacion':
@@ -234,6 +235,8 @@ function switchPages(operation) {
             contenidoAudios.play();
             break;
         case '.presentacion-mei':
+            contenidoAudios.src = 'assets/recordings/presentacion mei 2.mp3'
+            contenidoAudios.play();
             backgroundElementFn();
             break;
         case '.page2':
@@ -366,54 +369,92 @@ function switchPages(operation) {
             page29();
             break;  
         case '.page30':
+            contenidoAudios.src = 'assets/recordings/1.mp3'
+            contenidoAudios.play(); 
             page30();
             break; 
         case '.page31':
+            contenidoAudios.src = 'assets/recordings/2.mp3'
+            contenidoAudios.play(); 
             page31();
             break; 
+        case '.page32':
+            contenidoAudios.src = 'assets/recordings/3.mp3'
+            contenidoAudios.play(); 
+            break; 
         case '.page33':
+            contenidoAudios.src = 'assets/recordings/4.mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break; 
         case '.page34':
+            contenidoAudios.src = 'assets/recordings/5.mp3'
+            contenidoAudios.play(); 
             page34();
             break; 
         case '.page35':
+            contenidoAudios.src = 'assets/recordings/9 1.mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break; 
         case '.page36':
+            contenidoAudios.src = 'assets/recordings/9 2.mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break;
         case '.page37':
+            contenidoAudios.src = 'assets/recordings/9 3.mp3'
+            contenidoAudios.play(); 
             page37();
             break;
+        case '.page38':
+            contenidoAudios.src = 'assets/recordings/9 4.mp3'
+            contenidoAudios.play(); 
+            break;
         case '.page39':
+            contenidoAudios.src = 'assets/recordings/9 4 1.mp3'
+            contenidoAudios.play(); 
             page39();
             break;
         case '.page40':
+            contenidoAudios.src = 'assets/recordings/9 5.mp3'
+            contenidoAudios.play(); 
             page40();
             break;
         case '.page41':
+            contenidoAudios.src = 'assets/recordings/10 1.mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break;
         case '.page42':
+            contenidoAudios.src = 'assets/recordings/10 1 1.mp3'
+            contenidoAudios.play()
             page42();
             break;
         case '.page43':
+            contenidoAudios.src = 'assets/recordings/10 2.mp3'
+            contenidoAudios.play()
             page43();
             break;
         case '.page44':
+            contenidoAudios.src = 'assets/recordings/10 3.mp3'
+            contenidoAudios.play()
             page44();
             break;
         case '.page46':
             page46();
             break;
         case '.page47':
+            contenidoAudios.src = 'assets/recordings/10 6.mp3'
+            contenidoAudios.play()
             page47();
             break;
         case '.page48':
             backgroundElementFn();
             break;
         case '.page49':
+            contenidoAudios.src = 'assets/recordings/10 6 1.mp3'
+            contenidoAudios.play()
             page49();
             break;
         case '.fin-nivel1':
@@ -453,18 +494,18 @@ function switchPages(operation) {
             break;
         case '.fin-nivel8':
             finNivel();
-            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.src = 'assets/recordings/5 2.mp3'
             contenidoAudios.play();
             break;    
         case '.fin-nivel9':
             finNivel();
-            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
-            contenidoAudios.play();
+            contenidoAudios.src = 'assets/recordings/9 5 1.mp3'
+            contenidoAudios.play(); 
             break;
         case '.fin-nivel10':
             finNivel();
-            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
-            contenidoAudios.play();
+            contenidoAudios.src = 'assets/recordings/10 6 2.mp3'
+            contenidoAudios.play()
             break;
         case '.fin-nivel-final':
             finNivel();
@@ -485,7 +526,7 @@ btnPrev.addEventListener('click',()=>switchPages('prev'));
 const music = document.querySelector('.listening-icon');
 const marioMusic = document.querySelector('.aio');
 let playPauseState = false
-
+document.querySelector('.aio').volume = 0.04;
 music.addEventListener('click', ()=> {
     playPauseState = !playPauseState;
     if (playPauseState===true) {
@@ -2938,6 +2979,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.add('inactive');
                         document.querySelector('.def-lgb-5').classList.add('inactive');
                         document.querySelector('.def-lgb-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 1.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 7:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -2946,6 +2989,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.add('inactive');
                         document.querySelector('.def-lgb-5').classList.add('inactive');
                         document.querySelector('.def-lgb-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 2.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 8:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -2954,6 +2999,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.add('inactive');
                         document.querySelector('.def-lgb-5').classList.add('inactive');
                         document.querySelector('.def-lgb-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 3.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 9:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -2962,6 +3009,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.remove('inactive');
                         document.querySelector('.def-lgb-5').classList.add('inactive');
                         document.querySelector('.def-lgb-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 4.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 10:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -2970,6 +3019,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.add('inactive');
                         document.querySelector('.def-lgb-5').classList.remove('inactive');
                         document.querySelector('.def-lgb-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 5.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 11:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -2978,6 +3029,8 @@ function page31() {
                         document.querySelector('.def-lgb-4').classList.add('inactive');
                         document.querySelector('.def-lgb-5').classList.add('inactive');
                         document.querySelector('.def-lgb-6').classList.remove('inactive');
+                        contenidoAudios.src = 'assets/recordings/2 6.mp3'
+                        contenidoAudios.play(); 
                         break;
                     default:
                         document.querySelector('.def-lgb-1').classList.add('inactive');
@@ -3246,24 +3299,32 @@ function page43() {
                         document.querySelector('.def-tip-2').classList.add('inactive');
                         document.querySelector('.def-tip-3').classList.add('inactive');
                         document.querySelector('.def-tip-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/10 2 1.mp3'
+                        contenidoAudios.play()
                         break;
                     case 7:
                         document.querySelector('.def-tip-1').classList.add('inactive');
                         document.querySelector('.def-tip-2').classList.remove('inactive');
                         document.querySelector('.def-tip-3').classList.add('inactive');
                         document.querySelector('.def-tip-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/10 2 2.mp3'
+                        contenidoAudios.play()
                         break;
                     case 8:
                         document.querySelector('.def-tip-1').classList.add('inactive');
                         document.querySelector('.def-tip-2').classList.add('inactive');
                         document.querySelector('.def-tip-3').classList.remove('inactive');
                         document.querySelector('.def-tip-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/10 2 3.mp3'
+                        contenidoAudios.play()
                         break;
                     case 9:
                         document.querySelector('.def-tip-1').classList.add('inactive');
                         document.querySelector('.def-tip-2').classList.add('inactive');
                         document.querySelector('.def-tip-3').classList.add('inactive');
                         document.querySelector('.def-tip-4').classList.remove('inactive');
+                        contenidoAudios.src = 'assets/recordings/10 2 4.mp3'
+                        contenidoAudios.play()
                         break;
                     default:
                         document.querySelector('.def-tip-1').classList.add('inactive');
@@ -3500,6 +3561,8 @@ function page44() {
                             if(pipeCounter1 === 0){
                                 document.querySelector('.text-ups').classList.remove('inactive');
                             } else {
+                                contenidoAudios.src = 'assets/recordings/10 4.mp3'
+                                contenidoAudios.play()
                                 const videoPage = document.querySelector('.page45')
                                 videoPage.classList.remove('inactive')
                                 const pipePage = document.querySelector('.page44')
