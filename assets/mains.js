@@ -89,7 +89,7 @@ const rasgos = {
 }
 
 let personaje = 'mario';
-const paginas = ['.page1','.conceptualizacion','.presentacion-mei','.nivel1','.nivel1-1','.page2','.page3','.nivel1-2','.page4','.page5','.page6','.page7','.nivel1-3','.page8','.page10','.page11','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.nivel2-6','.page23','.page24','.page25','.page26','.nivel2-7','.page27','.page28','.page29','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49','.page51','.page50'];
+const paginas = ['.page1','.conceptualizacion','.presentacion-mei','.indice','.nivel1','.nivel1-1','.page2','.page3','.fin-nivel1','.nivel1-2','.page4','.page5','.page6','.page7','.fin-nivel2','.nivel1-3','.page8','.page10','.page11','.fin-nivel3','.nivel1-4','.page12','.page14','.page15','.page16','.page17','.page18','.fin-nivel4','.nivel2','.nivel2-5','.page19','.page20','.page21','.page22','.fin-nivel5','.nivel2-6','.page23','.page24','.page25','.page26','.fin-nivel6','.nivel2-7','.page27','.page28','.page29','.fin-nivel7','.nivel3','.nivel3-8','.page30','.page31','.page32','.page33','.page34','.fin-nivel8','.nivel3-9','.page35','.page36','.page37','.page38','.page39','.page40','.fin-nivel9','.nivel3-10','.page41','.page42','.page43','.page44','.page46','.page47','.page49','.fin-nivel10','.fin-nivel-final','.page51','.page50'];
 let numPagina = 0;
 const wasViewed = {
     '.page1': false,
@@ -106,9 +106,22 @@ const wasViewed = {
     '.page36': false,
     '.page41': false,
     '.page48': false,
-
+    '.nivel1': false,
+    '.nivel1-1': false,
+    '.nivel1-2': false,
+    '.nivel1-3': false,
+    '.nivel1-4': false,
+    '.nivel2': false,
+    '.nivel2-5': false,
+    '.nivel2-6': false,
+    '.nivel2-7': false,
+    '.nivel3': false,
+    '.nivel3-8': false,
+    '.nivel3-9': false,
+    '.nivel3-10': false,
 }
 /* Cambiar páginas */
+const actualPage = document.querySelector('.actual-page');
 function switchPages(operation) {
     if(operation==='next' && numPagina < paginas.length-1){
         numPagina += 1;
@@ -128,7 +141,47 @@ function switchPages(operation) {
         pagina48Video.classList.add('inactive')
     }
     console.log(paginas[numPagina]);
+    numPagina==0? actualPage.innerText = "":actualPage.innerText = numPagina;
     switch (paginas[numPagina]) {
+        case '.nivel1':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel1-1':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel1-2':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel1-3':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel1-4':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel2':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel2-5':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel2-6':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel2-7':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel3':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel3-8':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel3-9':
+            elementosSubNivel(paginas[numPagina]);
+            break;
+        case '.nivel3-10':
+            elementosSubNivel(paginas[numPagina]);
+            break;
         case '.page1':
             page1();
             break;
@@ -355,6 +408,45 @@ function elementosPagina1(classPage) {
 
 }
 
+function elementosSubNivel(classPage) {
+    if (wasViewed[paginas[numPagina]] === false){
+        const page = document.querySelector(classPage);
+        const backgroundElements = document.createElement("div");
+        backgroundElements.classList.add('background-elements');
+        page.insertBefore(backgroundElements, page.firstChild);
+        classPage = classPage.substring(classPage.indexOf(".")+1)
+        
+        for(let i = 0; i < 5; i++) {
+            const bloque = document.createElement("img");
+            bloque.src = "assets/images/bloque.png";
+            bloque.classList.add(`bloque-${classPage}`);
+            bloque.classList.add('bloque');
+            bloque.style.left = (60*i) + "px";
+            backgroundElements.append(bloque);
+        }
+
+        const pipePage = document.createElement("img");
+        pipePage.src = "assets/images/small-pipe.png";
+        pipePage.classList.add(`pipe-${classPage}`);
+        pipePage.classList.add('pipe');
+        backgroundElements.append(pipePage);
+
+        let bottomBean = 60;
+        let leftBean = 10;
+        for(let i = 0; i <2; i++) {
+            const beanPage = document.createElement("img");
+            beanPage.src = "assets/images/beanstalk.png";
+            beanPage.classList.add(`beanPage-${classPage}`);
+            beanPage.classList.add(`beanPage`);
+            beanPage.style.bottom = bottomBean + "px";
+            beanPage.style.left = leftBean + "px";
+            backgroundElements.append(beanPage);
+            leftBean=245;
+        }
+    }
+    wasViewed[paginas[numPagina]] = true;
+}
+
 function page1() {
     if (wasViewed[paginas[numPagina]] === false){
         elementosPagina1(paginas[numPagina]);
@@ -404,7 +496,8 @@ function page2(){
     mario.addEventListener('click', function() {
         personaje = 'mario';
         asignaPersonaje(personaje);
-        mario.style.background = '#0D6111';
+        mario.style.background = 'pink';
+        mario.style.padding = '1px';
         mario.style.borderRadius = '12px';
         peach.style.borderRadius = 'none';
         peach.style.background = '0px';
@@ -416,7 +509,8 @@ function page2(){
     peach.addEventListener('click', function() {
         personaje = 'peach';
         asignaPersonaje(personaje);
-        peach.style.background = '#0D6111';
+        peach.style.background = 'pink';
+        peach.style.padding = '1px';
         peach.style.borderRadius = '12px';
         mario.style.background = 'none';
         mario.style.borderRadius = '0px';
@@ -427,7 +521,8 @@ function page2(){
     toad.addEventListener('click', function() {
         personaje = 'toad';
         asignaPersonaje(personaje);
-        toad.style.background = '#0D6111';
+        toad.style.background = 'pink';
+        toad.style.padding = '1px';
         toad.style.borderRadius = '12px';
         mario.style.borderRadius = '0px';
         peach.style.borderRadius = '0px';
