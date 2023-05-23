@@ -835,6 +835,16 @@
             display: grid;
         }
 
+        .flag {
+            width: 50px;
+            position: absolute;
+        }
+        .tower {
+            width: 280px;
+            position: absolute;
+            bottom: 60px;
+            left: 10px;
+        }
         .reference-scroll {
             margin: 8px;
             width: auto;
@@ -862,6 +872,10 @@
     <div class="container">
         <audio class="aio" hidden controls loop>
             <source src="./assets/mariosound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio class="contenido-audios" hidden controls>
+            <source src="" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <div class="book-container">
@@ -987,7 +1001,7 @@
                 </form>
             </div>
             <div class="fin-nivel1 fin-niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Bien Hecho!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel1 move-character">
             </div>
             <div class="nivel1-2 subniveles inactive">
@@ -1035,7 +1049,7 @@
                 </div>
             </div>
             <div class="fin-nivel2 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Has desafiado lo que creías saber!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel2 move-character">
             </div>
             <div class="nivel1-3 subniveles inactive">
@@ -1073,7 +1087,7 @@
                 </form>
             </div>
             <div class="fin-nivel3 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Bien hecho, la bandera es tuya!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel3 move-character">
             </div>
             <div class="nivel1-4 subniveles inactive">
@@ -1149,7 +1163,7 @@
                 </form>
             </div>
             <div class="fin-nivel4 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Ganaste una bandera!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel4 move-character">
             </div>
             <div class="nivel2 niveles inactive">
@@ -1188,7 +1202,7 @@
                 </form>
             </div>
             <div class="fin-nivel5 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>Has observado que no todo es color de rosa y por eso ¡ganaste tu bandera!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel5 move-character">
             </div>
             <div class="nivel2-6 subniveles inactive">
@@ -1227,7 +1241,7 @@
                 </form>
             </div>
             <div class="fin-nivel6 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>Has conocido la oscuridad y por ello ¡Ganaste tu bandera!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel6 move-character">
             </div>
             <div class="nivel2-7 subniveles inactive">
@@ -1260,7 +1274,7 @@
                 </form>
             </div>
             <div class="fin-nivel7 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>Has observado que la oscuridad puede estar en todo lado. Por esto, ¡ganaste tu bandera!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel7 move-character">
             </div>
             <div class="nivel3 niveles inactive">
@@ -1364,7 +1378,7 @@
                 </form>
             </div>
             <div class="fin-nivel8 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Felicitaciones, haz revolucionado tu pensamiento!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel8 move-character">
             </div>
             <div class="nivel3-9 subniveles inactive">
@@ -1446,7 +1460,7 @@
                 </form>
             </div>
             <div class="fin-nivel9 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>¡Has desbloqueado poderes y liberado nuevas posibilidades!</h1>
                 <img src="" alt="" class="character-animation-fin-nivel9 move-character">
             </div>
             <div class="nivel3-10 subniveles inactive">
@@ -1531,11 +1545,13 @@
                 </form>
             </div>
             <div class="fin-nivel10 niveles inactive">
-                <h1>Fin nivel</h1>
+                <h2>Excelente! superaste el último nivel!</h2>
                 <img src="" alt="" class="character-animation-fin-nivel10 move-character">
             </div>
             <div class="fin-nivel-final niveles inactive">
-                <h1>Final Final</h1>
+                <h1>¡Lo lograste, Llegaste al final!</h1>
+                <img src="./assets/images/tower.png" alt="" class="tower">
+                <img src="" alt="" class="character-animation-fin-nivel-final move-character">
             </div>
             <div class="page51 inactive">
                 <h2 class="references">Glosario de adivinanzas</h2>

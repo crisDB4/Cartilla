@@ -133,7 +133,9 @@ const wasViewed = {
     '.fin-nivel8':false,
     '.fin-nivel9':false,
     '.fin-nivel10':false,
+    '.fin-nivel-final':false,
 }
+const contenidoAudios = document.querySelector('.contenido-audios');
 /* Cambiar páginas */
 const actualPage = document.querySelector('.actual-page');
 function switchPages(operation) {
@@ -159,119 +161,208 @@ function switchPages(operation) {
     switch (paginas[numPagina]) {
         case '.nivel1':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Mundo-diversidad-y-diferencia.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel1-1':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-1-La-batalla-Interna.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel1-2':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-2-Desafía-las-etiquetas.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel1-3':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-3-Rompiendo-Moldes.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel1-4':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-4-Deconstruye-tus-ideas.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel2':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Reino-oscuro.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel2-5':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-5.-Corre-por-tu-vida.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel2-6':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-6-Tipos-de-oscuridad.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel2-7':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Nivel-7-Mundos-de-oscuridad.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel3':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/Mundo-no-normativo.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel3-8':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/apertura-nivel-8.mp3'
+            contenidoAudios.play();
+            apertura-nivel-8
             break;
         case '.nivel3-9':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/apertura-nivel-9.mp3'
+            contenidoAudios.play();
             break;
         case '.nivel3-10':
             elementosSubNivel(paginas[numPagina]);
+            contenidoAudios.src = 'assets/recordings/apertura-nivel-10.mp3'
+            contenidoAudios.play();
             break;
         case '.page1':
             page1();
             break;
         case '.conceptualizacion':
             backgroundElementFn();
+            contenidoAudios.src = 'assets/recordings/Conceptualizacion.mp3'
+            contenidoAudios.play();
             break;
         case '.presentacion-mei':
             backgroundElementFn();
             break;
         case '.page2':
             page2();
+            contenidoAudios.src = 'assets/recordings/Escoge tu personaje.mp3'
+            contenidoAudios.play();
             break;
         case '.page3':
             page3();
+            contenidoAudios.src = 'assets/recordings/Vamos a crear tu personaje.mp3'
+            contenidoAudios.play();
             break;
         case '.page4':
             page4();
+            contenidoAudios.src = 'assets/recordings/Que crees que es sexo.mp3'
+            contenidoAudios.play();
             break;
         case '.page5':
+            contenidoAudios.src = 'assets/recordings/desafia.mp3'
+            contenidoAudios.play();
             page5();
             break;
         case '.page6':
             backgroundElementFn();
+            contenidoAudios.src = 'assets/recordings/cactus.mp3'
+            contenidoAudios.play();
             break;
         case '.page7':
             page7();
+            contenidoAudios.src = 'assets/recordings/relacion sexo genero.mp3'
+            contenidoAudios.play();
             break;
         case '.page8':
+            contenidoAudios.src = 'assets/recordings/Nivel 3 Elige la cancion.mp3'
+            contenidoAudios.play();
             page8();
             break;
         case '.page10':
+            contenidoAudios.src = 'assets/recordings/Planta Identidad de Género.mp3'
+            contenidoAudios.play();
             page10();
             break;
         case '.page11':
+            contenidoAudios.src = 'assets/recordings/Preguntas.mp3'
+            contenidoAudios.play();
             page11();
             break;
         case '.page12':
+            contenidoAudios.src = 'assets/recordings/Elegir Canción nivel 4.mp3'
+            contenidoAudios.play();
             page12();
             break;
         case '.page13':
             backgroundElementFn();
             break;
+        case '.page14':
+            contenidoAudios.src = 'assets/recordings/Posees ideas que limitan.mp3'
+            contenidoAudios.play();
+            break;
+        case '.page15':
+            contenidoAudios.src = 'assets/recordings/Drap  Drop Mario peach.mp3'
+            contenidoAudios.play();
+            break;
         case '.page16':
+            contenidoAudios.src = 'assets/recordings/Concepto Rol y esterotipos.mp3'
+            contenidoAudios.play();
             page16();
             break;
+        case '.page17':
+            contenidoAudios.src = 'assets/recordings/Deseas ganar un nuevo poder.mp3'
+            contenidoAudios.play();
+            break;
         case '.page18':
+            contenidoAudios.src = 'assets/recordings/Has superado tus límites preguntas.mp3'
+            contenidoAudios.play();
             page18();
             break;
+        case '.page19':
+            contenidoAudios.src = 'assets/recordings/violencia basada en género.mp3'
+            contenidoAudios.play();
+            break;
         case '.page20':
+            contenidoAudios.src = 'assets/recordings/Violentometro .mp3'
+            contenidoAudios.play();
             page20();
             break;
         case '.page21':
+            contenidoAudios.src = 'assets/recordings/Escucha Tu voz contra la violencia .mp3'
+            contenidoAudios.play();
             backgroundElementFn();
             break;
         case '.page22':
+            contenidoAudios.src = 'assets/recordings/Escribe frases .mp3'
+            contenidoAudios.play(); 
             page22();
             break;
         case '.page23':
+            contenidoAudios.src = 'assets/recordings/Responde tipos de violencia que crees que existen.mp3'
+            contenidoAudios.play(); 
             page23();
             break;
         case '.page24':
+            contenidoAudios.src = 'assets/recordings/tipos de violencia bloques.mp3'
+            contenidoAudios.play(); 
             page24();
             break;
         case '.page25':
+            contenidoAudios.src = 'assets/recordings/escucha canción violencia de genero.mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break;
         case '.page26':
+            contenidoAudios.src = 'assets/recordings/escribe tipos de violencia y ejemplo .mp3'
+            contenidoAudios.play(); 
             page26();
             break;    
         case '.page27':
+            contenidoAudios.src = 'assets/recordings/escucha Canción sin miedo .mp3'
+            contenidoAudios.play(); 
             backgroundElementFn();
             break;  
         case '.page28':
+            contenidoAudios.src = 'assets/recordings/información respecto a contextos .mp3'
+            contenidoAudios.play(); 
             page28();
             break;
         case '.page29':
+            contenidoAudios.src = 'assets/recordings/explicación por medio de ejemplo contextos .mp3'
+            contenidoAudios.play(); 
             page29();
             break;  
         case '.page30':
@@ -327,33 +418,62 @@ function switchPages(operation) {
             break;
         case '.fin-nivel1':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel2':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel3':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel4':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel5':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel6':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel7':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel8':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;    
         case '.fin-nivel9':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
             break;
         case '.fin-nivel10':
             finNivel();
+            contenidoAudios.src = 'assets/recordings/Bandera.mp3'
+            contenidoAudios.play();
+            break;
+        case '.fin-nivel-final':
+            finNivel();
+            contenidoAudios.src = 'assets/recordings/meta.mp3'
+            contenidoAudios.play();
+            break;
+        case '.indice':
+            contenidoAudios.src = 'assets/recordings/indice.mp3'
+            contenidoAudios.play();
             break;
     }
 }
@@ -835,10 +955,14 @@ function page5() {
                 if(brickCounter == 6){
                     document.querySelector('.def-sexo').classList.remove('inactive');
                     document.querySelector('.def-genero').classList.add('inactive');
+                    contenidoAudios.src = 'assets/recordings/concepto sexo.mp3'
+                    contenidoAudios.play();
                     console.log('sexo');
                 } else if (brickCounter==8) {
                     document.querySelector('.def-sexo').classList.add('inactive');
                     document.querySelector('.def-genero').classList.remove('inactive');
+                    contenidoAudios.src = 'assets/recordings/concepto genero.mp3'
+                    contenidoAudios.play();
                     console.log('genero');
                 } else {
                     document.querySelector('.def-sexo').classList.add('inactive');
@@ -2355,24 +2479,32 @@ function page24() {
                         document.querySelector('.def-violencia-2').classList.add('inactive');
                         document.querySelector('.def-violencia-3').classList.add('inactive');
                         document.querySelector('.def-violencia-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/tipos de violencia bloques 1.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 7:
                         document.querySelector('.def-violencia-1').classList.add('inactive');
                         document.querySelector('.def-violencia-2').classList.remove('inactive');
                         document.querySelector('.def-violencia-3').classList.add('inactive');
                         document.querySelector('.def-violencia-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/tipos de violencia bloques 2.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 8:
                         document.querySelector('.def-violencia-1').classList.add('inactive');
                         document.querySelector('.def-violencia-2').classList.add('inactive');
                         document.querySelector('.def-violencia-3').classList.remove('inactive');
                         document.querySelector('.def-violencia-4').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/tipos de violencia bloques 3.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 9:
                         document.querySelector('.def-violencia-1').classList.add('inactive');
                         document.querySelector('.def-violencia-2').classList.add('inactive');
                         document.querySelector('.def-violencia-3').classList.add('inactive');
                         document.querySelector('.def-violencia-4').classList.remove('inactive');
+                        contenidoAudios.src = 'assets/recordings/tipos de violencia bloques 4.mp3'
+                        contenidoAudios.play(); 
                         break;
                     default:
                         document.querySelector('.def-violencia-1').classList.add('inactive');
@@ -2553,6 +2685,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.add('inactive');
                         document.querySelector('.def-contexto-5').classList.add('inactive');
                         document.querySelector('.def-contexto-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 1.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 7:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -2561,6 +2695,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.add('inactive');
                         document.querySelector('.def-contexto-5').classList.add('inactive');
                         document.querySelector('.def-contexto-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 2.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 9:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -2569,6 +2705,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.add('inactive');
                         document.querySelector('.def-contexto-5').classList.add('inactive');
                         document.querySelector('.def-contexto-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 3.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 10:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -2577,6 +2715,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.remove('inactive');
                         document.querySelector('.def-contexto-5').classList.add('inactive');
                         document.querySelector('.def-contexto-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 4.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 12:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -2585,6 +2725,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.add('inactive');
                         document.querySelector('.def-contexto-5').classList.remove('inactive');
                         document.querySelector('.def-contexto-6').classList.add('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 5.mp3'
+                        contenidoAudios.play(); 
                         break;
                     case 13:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -2593,6 +2735,8 @@ function page28() {
                         document.querySelector('.def-contexto-4').classList.add('inactive');
                         document.querySelector('.def-contexto-5').classList.add('inactive');
                         document.querySelector('.def-contexto-6').classList.remove('inactive');
+                        contenidoAudios.src = 'assets/recordings/información respecto a contextos 6.mp3'
+                        contenidoAudios.play(); 
                         break;
                     default:
                         document.querySelector('.def-contexto-1').classList.add('inactive');
@@ -3931,6 +4075,13 @@ function finNivel() {
             bloque.style.left = (60*i) + "px";
             page4.append(bloque);
         }
+        const flag = document.createElement("img");
+        flag.src = "assets/images/flag.png";
+        flag.classList.add(`flag-${classPage}`);
+        flag.classList.add('flag');
+        flag.style.left = 160 + "px";
+        flag.style.bottom = 60 + "px";
+        page4.append(flag);
         let nImage = 1
         let contador = 1
         let movimiento = 5;
