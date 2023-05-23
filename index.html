@@ -119,7 +119,7 @@
             color: #308E25;
         }
         .rosado {
-            color: pink
+            color: pink;
         }
         .bloque {
             width: 60px;
@@ -232,6 +232,15 @@
             grid-template-columns: 1fr auto;
         } 
 
+        .indice .rojo {
+            color: #F05050;
+        }
+        .indice .verde {
+            color: #308E25;
+        }
+        .indice .rosado {
+            color: pink;
+        }
         .page2{
             width: 100%;
             height: 100%;
@@ -476,6 +485,19 @@
             box-shadow: 2px 4px 10px grey;
             height: 16px;
         }
+        .page23 form textarea,
+        .page26 form textarea,
+        .page29 form textarea,
+        .page37 form textarea,
+        .page39 form textarea,
+        .page40 form textarea,
+        .page42 form textarea,
+        .page49 form textarea{
+            height: 36px;
+            position: relative;
+            align-self: start;
+            margin: 4px;
+        }
         /* page 5 */
         .page5 {
             width: 100%;
@@ -554,10 +576,9 @@
             width: 100%;
             height: 100%;
             display: grid;
-            grid-template-rows: 1fr auto 1fr;
+            grid-template-rows: auto auto 1fr;
             justify-items: center;
             align-items: center;
-            text-align: center;
             color: var(--white);
         }
 
@@ -566,17 +587,26 @@
             font-size: 20px;
             color: var(--white);
             text-shadow: 0px 1px var(--darkerblue);
-            cursor: grab;
+            margin: 4px;
+            text-align: center;
+            border: 1px solid var(--white);
+            border-radius: 12px;
         }
-        .page-with-drag p:nth-child(1){
+        .page-with-drag .title-drag{
             text-align: justify;
             cursor: default;
+            margin: 24px 16px 0px;
+            border:0;
+            border-radius: 0;
         }
         .page-with-drag .drag-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             flex-wrap: wrap;
         }
         .page-with-drag .drop-container {
+            width: 80%;
+            height: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             padding: 8px;
@@ -587,26 +617,59 @@
             object-fit: cover;
         }
         .page-with-drag .drop-container div {
-            padding: 8px;
+            height: auto;
+            padding: 4px;
             font-size: 24px;
+            border: 2px dashed var(--white)
+        }
+        .page15 .drop-container{
+            padding: 0;
+            display: grid;
+            justify-items: center;
+            align-items: center;
         }
 
-        .page38 p{
-            margin: 8;
-            font-size: 16;
+        .page15 .drop-container div {
+            border: 0;
         }
-        .page38 p:nth-child(1){
-            margin: 20px 20px 5px 20px;
+
+        .page15 .drop-container .mario-drop-class, 
+        .page15 .drop-container .peach-drop-class {
+            height: auto;
+            padding: 8px;
+            font-size: 24px;
+            border: 2px dashed var(--white)
+        }
+
+        .page38 .drop-container{
+            position: relative;
+            top: 0;
+            padding: 0;
+        }
+        .page38 .drop-container p{
+            margin: 0;
+            font-size: 16px;
         }
         .page38 .drop-container div {
-            padding: 8px;
+            border: 0;
+        }
+        .page38 .drop-container .to-here {
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
             font-size: 12px;
+            border: 2px dashed var(--white)
         }
-        .page38 img {
+        .page38 .drop-container img {
             width: 50px;
             height: 50px;
             object-fit: cover;
+        }
+        .page38 p {
+            font-size: 16px;
+        }
+        .page45 .drop-container{
+            position: relative;
+            top: 0;
+            padding: 0;
         }
 
         /* page 8 */
@@ -697,6 +760,29 @@
         .page46 .definicion {
             height: 30px;
         }
+        .crimson {
+            color: crimson;
+        }
+        .page-with-input {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+        }
+        .page-with-input .title-input{
+            text-align: justify;
+            cursor: default;
+            margin: 24px 16px 0px;
+            border:0;
+            border-radius: 0;
+        }
+        .page-with-input form {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            text-align: center;
+        }
+
         .reference-scroll {
             margin: 8px;
             width: auto;
@@ -741,73 +827,73 @@
                 </div>
             </div>
             <div class="indice inactive">
-                <h2>Indice</h2>
+                <h2>Índice</h2>
                 <ol>
                     <div>
                         <p class="subtitle">Mundo Diversidad y Diferencia</p>
-                        <p class="subtitle"> Pag.</p>
+                        <p class="subtitle rosado"> Pag.</p>
                     </div>
                     <li>
-                        <p>1.</p>
+                        <p class="rojo">1.</p>
                         <p>Nivel 1. "La batalla interna"</p>
-                        <p>5</p>
+                        <p class="rosado">5</p>
                     </li>
                     <li>
-                        <p>2.</p>
+                        <p class="rojo">2.</p>
                         <p>Nivel 2. "Desafía las etiquetas"</p>
-                        <p>9</p>
+                        <p class="rosado">9</p>
                     </li>
                     <li>
-                        <p>3.</p>
+                        <p class="rojo">3.</p>
                         <p>Nivel 3. “Rompiendo moldes”</p>
-                        <p>15</p>
+                        <p class="rosado">15</p>
                     </li>
                     <li>
-                        <p>4.</p>
+                        <p class="rojo">4.</p>
                         <p>Nivel 4. “Deconstruye tus ideas”</p>
-                        <p>20</p>
+                        <p class="rosado">20</p>
                     </li>
                     <p class="subtitle">Mundo Oscuro</p>
                     <li>
-                        <p>5.</p>
+                        <p class="rojo">5.</p>
                         <p>Nivel 5. “Corre por tu vida”</p>
-                        <p>29</p>
+                        <p class="rosado">29</p>
                     </li>
                     <li>
-                        <p>6.</p>
+                        <p class="rojo">6.</p>
                         <p>Nivel 6. “Tipos de oscuridad”</p>
-                        <p>35</p>
+                        <p class="rosado">35</p>
                     </li>
                     <li>
-                        <p>7.</p>
+                        <p class="rojo">7.</p>
                         <p>Nivel 7. “Mundos de oscuridad”</p>
-                        <p>41</p>
+                        <p class="rosado">41</p>
                     </li>
                     <p class="subtitle">Mundo No Normativo</p>
                     <li>
-                        <p>8.</p>
+                        <p class="rojo">8.</p>
                         <p>Nivel 8. “Ideas en evolución”</p>
-                        <p>47</p>
+                        <p class="rosado">47</p>
                     </li>
                     <li>
-                        <p>9.</p>
+                        <p class="rojo">9.</p>
                         <p>Nivel 9. “Igualdad Pixelada”</p>
-                        <p>54</p>
+                        <p class="rosado">54</p>
                     </li>
                     <li>
-                        <p>10.</p>
+                        <p class="rojo">10.</p>
                         <p>Nivel 10. “Alerta Juvenil”</p>
-                        <p>62</p>
+                        <p class="rosado">62</p>
                     </li>
                     <li>
-                        <p>11.</p>
+                        <p class="rojo">11.</p>
                         <p>Glosario de adivinanzas</p>
-                        <p>72</p>
+                        <p class="rosado">72</p>
                     </li>
                     <li>
-                        <p>12.</p>
+                        <p class="rojo">12.</p>
                         <p>Referencias Bibliográficas</p>
-                        <p>73</p>
+                        <p class="rosado">73</p>
                     </li>
                 </ol>
             </div>
@@ -866,8 +952,8 @@
             </div>
             <div class="page5 inactive">
                 <p>Ahora desafía lo que creías saber, ¡A romper bloques!</p>
-                <p class="def-sexo inactive definicion">Sexo: Se refiere a la categoría que se le asigna a una persona al nacer teniendo en cuenta sus características biológicas, físicas y sexuales, por ejemplo, los órganos reproductivos.  Así mismo, ten en cuenta que existen tres tipos de sexo biológico: Femenino, masculino e intersexual.</p>
-                <p class="def-genero inactive definicion">Género:  Define lo que significa ser un hombre o una mujer y como deben comportarse, es decir, son las expectativas culturales y sociales que se le asocian a cada uno, por ejemplo, se piensa que un hombre debe ser fuerte y valiente, mientras que una mujer debe ser delicada y sumisa.</p>
+                <p class="def-sexo inactive definicion"><span class="crimson">Sexo:</span> Se refiere a la categoría que se le asigna a una persona al nacer teniendo en cuenta sus características biológicas, físicas y sexuales, por ejemplo, los órganos reproductivos.  Así mismo, ten en cuenta que existen tres tipos de sexo biológico: Femenino, masculino e intersexual.</p>
+                <p class="def-genero inactive definicion"><span class="crimson">Género:</span>  Define lo que significa ser un hombre o una mujer y como deben comportarse, es decir, son las expectativas culturales y sociales que se le asocian a cada uno, por ejemplo, se piensa que un hombre debe ser fuerte y valiente, mientras que una mujer debe ser delicada y sumisa.</p>
                 <canvas width="300" height="420"></canvas>
             </div>
             <div class="page6 page-with-video inactive">
@@ -878,7 +964,7 @@
                 </div>
             </div>
             <div class="page7 page-with-drag  inactive">
-                <p> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
+                <p class="title-drag"> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
                 <div class="drag-container">
                     <p class="organos-sexo-drop" draggable="true" ondragstart="drag(event)">Organos sexuales</p>
                     <p class="construccion-genero-drop" draggable="true" ondragstart="drag(event)">Construcción social</p>
@@ -889,8 +975,8 @@
                     <p class="masculino-sexo-drop" draggable="true" ondragstart="drag(event)">Masculino</p>
                 </div>
                 <div class="drop-container">
-                    <div class="sexo-drop" ondrop="drop(event)" ondragover="allowDrop(event)">Sexo</div>
-                    <div class="genero-drop" ondrop="drop(event)" ondragover="allowDrop(event)">Género</div>
+                    <div class="sexo-drop sexo-drop-class" ondrop="drop(event)" ondragover="allowDrop(event)">Sexo</div>
+                    <div class="genero-drop genero-drop-class" ondrop="drop(event)" ondragover="allowDrop(event)">Género</div>
                 </div>
             </div>
             <div class="fin-nivel2 niveles inactive">
@@ -917,7 +1003,7 @@
                 <canvas class="canvas3" width="300" height="420"></canvas>
             </div>
             <div class="page11 page-with-input inactive">
-                <p class="changeTextPage11">Para obtener la bandera, deberás demostrar tu capacidad para construir tu mundo interior, así que responde las siguientes preguntas:</p>
+                <p class="changeTextPage11 title-input">Para obtener la bandera, deberás demostrar tu capacidad para construir tu mundo interior, así que responde las siguientes preguntas:</p>
                 <form action="" class="page11-form">
                     <p>¿Qué sentí al escuchar la canción?</p>
                     <textarea class="page11-txt-1 textFormat"></textarea>
@@ -953,7 +1039,7 @@
                 <h2>¿Posees ideas que limitan tu visión del mundo?, si quieres responder está pregunta, ¡deberás desafiarte!</h2>
             </div>
             <div class="page15 page-with-drag inactive">
-                <p> Elige las palabras que le pertenecen al personaje ¡Veámoslo!</p>
+                <p class="title-drag"> Elige las palabras que le pertenecen al personaje ¡Veámoslo!</p>
                 <div class="drag-container">
                     <p class="amor-drop" draggable="true" ondragstart="drag15(event)">Amor</p>
                     <p class="agresividad-drop" draggable="true" ondragstart="drag15(event)">Agresividad</p>
@@ -965,18 +1051,18 @@
                 <div class="drop-container">
                     <div>
                         <img src="./assets/images/peach-main.png" alt="">
-                    <div class="peach-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Peach</div>
+                    <div class="peach-drop peach-drop-class" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Peach</div>
                     </div>
                     <div>
                         <img src="./assets/images/mario-main.png" alt="">
-                    <div class="mario-drop" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Mario</div>
+                    <div class="mario-drop mario-drop-class" ondrop="drop15(event)" ondragover="allowDrop15(event)"> Mueve aquí las palabras de Mario</div>
                     </div>
                 </div>
             </div>
             <div class="page16 page-with-canvas inactive">
                 <p>Ahora desafía lo que creías saber, ¡A romper bloques!</p>
-                <p class="def-roles inactive definicion">Roles de género: <br> Son los comportamientos y labores que se espera que cumplas, dependiendo si eres hombre o mujer, por ejemplo, se piensa erróneamente que solo los hombres toman las decisiones importantes en el hogar, mientras que las mujeres se deben dedicar a las tareas del hogar o cuidado de los niños.</p>
-                <p class="def-estereotipos inactive definicion">Estereotipos de género:
+                <p class="def-roles inactive definicion"><span class="crimson">Roles de género:</span> <br> Son los comportamientos y labores que se espera que cumplas, dependiendo si eres hombre o mujer, por ejemplo, se piensa erróneamente que solo los hombres toman las decisiones importantes en el hogar, mientras que las mujeres se deben dedicar a las tareas del hogar o cuidado de los niños.</p>
+                <p class="def-estereotipos inactive definicion"><span class="crimson">Estereotipos de género:</span>
                     <br> Son ideas generalizadas que se tiene sobre los comportamientos esperados de las personas según si son hombres o mujeres.
                     <br>    Así mismo, los estereotipos de género limitan la capacidad de las personas para actuar teniendo en cuenta sus intereses o habilidades.
                     <br>    ¿Has escuchado estás frases? “Los hombres son buenos en matemáticas” y “Las mujeres son débiles y emocionales”, pues bien, ¡Estos son estereotipos de género! </p>
@@ -991,7 +1077,7 @@
                 </div>
             </div>
             <div class="page18 page-with-input inactive">
-                <p class="changeTextPage18">¡Has superado tus límites y estás más cerca de la bandera! Para poder completar tu misión deberás responder las siguientes preguntas:</p>
+                <p class="changeTextPage18 title-input">¡Has superado tus límites y estás más cerca de la bandera! Para poder completar tu misión deberás responder las siguientes preguntas:</p>
                 <form action="" class="page18-form">
                     <p>¿Qué estereotipos reconocí en la canción?</p>
                     <textarea class="page18-txt-1 textFormat"></textarea>
@@ -1033,7 +1119,7 @@
                 </div>
             </div>
             <div class="page22 page-with-input inactive">
-                <p class="changeTextPage22">Finalmente para avanzar a la siguiente misión, en cada cuadro menciona una frase de esta canción y explicara por qué las elegiste</p>
+                <p class="changeTextPage22 title-input">Finalmente para avanzar a la siguiente misión, en cada cuadro menciona una frase de esta canción y explicara por qué las elegiste</p>
                 <form action="" class="page22-form">
                     <p>Escribe la primera frase y la justificación</p>
                     <textarea class="page22-txt-1 textFormat"></textarea>
@@ -1051,7 +1137,7 @@
                 <p><span class="rosado">Tiempo en Misión:</span> 20 minutos</p>
             </div>
             <div class="page23 page-with-input inactive">
-                <p class="changeTextPage23">Responde a la siguiente pregunta</p>
+                <p class="changeTextPage23 title-input">Responde a la siguiente pregunta</p>
                 <form action="" class="page23-form">
                     <p>¿cuáles tipos de violencia crees que existen?</p>
                     <textarea class="page23-txt-1 textFormat"></textarea>
@@ -1060,10 +1146,10 @@
             </div>
             <div class="page24 page-with-canvas inactive">
                 <p>Vamos a conocer los tipos de violencia, ¡A romper bloques!</p>
-                <p class="def-violencia-1 inactive definicion">Violencia económica: Es la acción que provoca una disminución o por debajeo de lo que logra tener una persona en asuntos económicos, acompañado de retención de dinero y humillación.</p>
-                <p class="def-violencia-2 inactive definicion">Violencia Psicológica: Cualquier acto que dañe la estabilidad emocional de las personas, en esto se ve reflejado palabras de desprecio, humillaciones, abandono, infidelidad, rechazo y marginación, lo cual genera tristeza.</p>
-                <p class="def-violencia-3 inactive definicion">Violencia física: Uso de la fuerza física hacia otras personas, en donde se golpea, empuja, muerde o pellizca, afectando el bienestar de la persona agredida.</p>
-                <p class="def-violencia-4 inactive definicion">Violencia sexual: Acto o comentario sexual que no es deseado por parte de la victima y es obligado a realizar o aceptar.</p> 
+                <p class="def-violencia-1 inactive definicion"><span class="crimson">Violencia económica:</span> Es la acción que provoca una disminución o por debajeo de lo que logra tener una persona en asuntos económicos, acompañado de retención de dinero y humillación.</p>
+                <p class="def-violencia-2 inactive definicion"><span class="crimson">Violencia Psicológica:</span> Cualquier acto que dañe la estabilidad emocional de las personas, en esto se ve reflejado palabras de desprecio, humillaciones, abandono, infidelidad, rechazo y marginación, lo cual genera tristeza.</p>
+                <p class="def-violencia-3 inactive definicion"><span class="crimson">Violencia física:</span> Uso de la fuerza física hacia otras personas, en donde se golpea, empuja, muerde o pellizca, afectando el bienestar de la persona agredida.</p>
+                <p class="def-violencia-4 inactive definicion"><span class="crimson">Violencia sexual:</span> Acto o comentario sexual que no es deseado por parte de la victima y es obligado a realizar o aceptar.</p> 
                 <canvas class="canvas7" width="300" height="420"></canvas>
             </div>
             <div class="page25 page-with-video inactive">
@@ -1074,7 +1160,7 @@
                 </div>
             </div>
             <div class="page26 page-with-input inactive">
-                <p class="changeTextPage26">Para poder avanzar, escribirás qué tipos de violencia se mencionaron en la canción y darás un ejemplo de cada una.</p>
+                <p class="changeTextPage26 title-input">Para poder avanzar, escribirás qué tipos de violencia se mencionaron en la canción y darás un ejemplo de cada una.</p>
                 <form action="" class="page26-form">
                     <textarea class="page26-txt-1 textFormat"></textarea>
                     <button class="btn-page-26">Listo!</button>
@@ -1097,16 +1183,16 @@
             </div>
             <div class="page28 page-with-canvas inactive">
                 <p>A continuación vas encontrar información respecto a los contextos donde se da la violencia basada en género. ¡A romper bloques!</p>
-                <p class="def-contexto-1 inactive definicion">Calle: Realizan miradas, comentarios y actos que no te hacen sentir cómodo</p>
-                <p class="def-contexto-2 inactive definicion">Familia o casa: pueden afectar física, psicológicamente y económicamente</p>
-                <p class="def-contexto-3 inactive definicion">Laboral o trabajo: Generan presión o se usa la humillación.</p>
-                <p class="def-contexto-4 inactive definicion">Escolar: Pueden afectar de todas las maneras, generan procesos de humillación o aislamiento.</p> 
-                <p class="def-contexto-5 inactive definicion">Internet: Hacen comentarios grotescos y muchas veces usan el chantaje.</p> 
-                <p class="def-contexto-6 inactive definicion">Pareja: Se pueden generar agresiones, físicas, psicológicas y económicas, esto puede afectar el bienestar de la persona agredida.</p> 
+                <p class="def-contexto-1 inactive definicion"><span class="crimson">Calle:</span> Realizan miradas, comentarios y actos que no te hacen sentir cómodo</p>
+                <p class="def-contexto-2 inactive definicion"><span class="crimson">Familia o casa:</span> pueden afectar física, psicológicamente y económicamente</p>
+                <p class="def-contexto-3 inactive definicion"><span class="crimson">Laboral o trabajo:</span> Generan presión o se usa la humillación.</p>
+                <p class="def-contexto-4 inactive definicion"><span class="crimson">Escolar:</span> Pueden afectar de todas las maneras, generan procesos de humillación o aislamiento.</p> 
+                <p class="def-contexto-5 inactive definicion"><span class="crimson">Internet:</span> Hacen comentarios grotescos y muchas veces usan el chantaje.</p> 
+                <p class="def-contexto-6 inactive definicion"><span class="crimson">Pareja:</span> Se pueden generar agresiones, físicas, psicológicas y económicas, esto puede afectar el bienestar de la persona agredida.</p> 
                 <canvas class="canvas8" width="300" height="420"></canvas>
             </div>
             <div class="page29 page-with-input inactive">
-                <p class="changeTextPage29">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <p class="changeTextPage29 title-input">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page29-form">
                     <textarea class="page29-txt-1 textFormat"></textarea>
                     <button class="btn-page-29">Listo!</button>
@@ -1124,7 +1210,7 @@
                 <p><span class="rosado">Tiempo en Misión:</span> 30 minutos</p>
             </div>
             <div class="page30 page-with-input inactive">
-                <p class="changeTextPage30">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <p class="changeTextPage30 title-input">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page30-form">
                     <div>
                         <p>L</p>
@@ -1155,16 +1241,16 @@
             </div>
             <div class="page31 page-with-canvas inactive">
                 <p>Ahora, revoluciona tu pensamiento. Avanza y descubre que tiene cada bloque para ti</p>
-                <p class="def-lgb-1 inactive definicion">L: Lesbianas: Mujer que siente atracción física, emocional y romántica continuamente hacia las mujeres.</p>
-                <p class="def-lgb-2 inactive definicion"> G: Gays: Hombre que siente una atracción física, emocional y romántica continuamente hacia los hombres.</p>
-                <p class="def-lgb-3 inactive definicion">B: Bisexuales: Persona (hombre o mujer) que siente atracción física, emocional y romántica hacia personas de más de un sexo.</p>
-                <p class="def-lgb-4 inactive definicion">T: Transgenero: Persona que se identifica con un género diferente al que se le asignó al nacer, por ejemplo, una persona asignada como “hombre” al nacer, pero que se identifica y se siente como una mujer.</p>
-                <p class="def-lgb-5 inactive definicion">I: Intersexuales: Persona que puede nacer con genitales o características sexuales que no son completamente masculinas o femeninas, por ejemplo, una persona puede tener órganos genitales externos a los conocidos tradicionalmente de pene o vulva.</p>
-                <p class="def-lgb-6 inactive definicion"> Q: Queer: Identidad que desafía las normas tradicionales de género y sexualidad ya que, por ejemplo, una persona Queer podría identificarse como no heterosexual lo que significa que su atracción se dirige hacia personas del mismo género o múltiples géneros.</p>
+                <p class="def-lgb-1 inactive definicion"><span class="crimson">L:</span> Lesbianas: Mujer que siente atracción física, emocional y romántica continuamente hacia las mujeres.</p>
+                <p class="def-lgb-2 inactive definicion"><span class="crimson">G:</span> Gays: Hombre que siente una atracción física, emocional y romántica continuamente hacia los hombres.</p>
+                <p class="def-lgb-3 inactive definicion"><span class="crimson">B:</span> Bisexuales: Persona (hombre o mujer) que siente atracción física, emocional y romántica hacia personas de más de un sexo.</p>
+                <p class="def-lgb-4 inactive definicion"><span class="crimson">T:</span> Transgenero: Persona que se identifica con un género diferente al que se le asignó al nacer, por ejemplo, una persona asignada como “hombre” al nacer, pero que se identifica y se siente como una mujer.</p>
+                <p class="def-lgb-5 inactive definicion"><span class="crimson">I:</span> Intersexuales: Persona que puede nacer con genitales o características sexuales que no son completamente masculinas o femeninas, por ejemplo, una persona puede tener órganos genitales externos a los conocidos tradicionalmente de pene o vulva.</p>
+                <p class="def-lgb-6 inactive definicion"><span class="crimson">Q:</span> Queer: Identidad que desafía las normas tradicionales de género y sexualidad ya que, por ejemplo, una persona Queer podría identificarse como no heterosexual lo que significa que su atracción se dirige hacia personas del mismo género o múltiples géneros.</p>
                 <canvas class="canvas9" width="300" height="420"></canvas>
             </div>
-            <div class="page32 inactive">
-                <p> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
+            <div class="page32 page-with-drag inactive">
+                <p class="title-drag"> Estás más cerca de la bandera! Es momento de usar tus herramientas mentales, relaciona las palabras claves con los conceptos sexo y género.</p>
                 <div class="drag-container">
                     <p class="vida-rojo-drop" draggable="true" ondragstart="drag32(event)">Representa la vida</p>
                     <p class="luz-amarillo-drop" draggable="true" ondragstart="drag32(event)">la luz del sol</p>
@@ -1190,7 +1276,7 @@
                 </div>
             </div>
             <div class="page34 page-with-input inactive">
-                <p class="changeTextPage34">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
+                <p class="changeTextPage34 title-input">Para avanzar a la siguiente misión, explica por medio de un ejemplo algún contexto donde se de la violencia basada en género:</p>
                 <form action="" class="page34-form">
                     <div>
                         <p>¿Por qué es LGBTIQ?</p>
@@ -1239,14 +1325,14 @@
                 </div>
             </div>
             <div class="page37 page-with-input inactive">
-                <p class="changeTextPage37">¡Genial! Es hora de usar una vez más tus herramientas mentales, reflexiona sobre cómo se presentan las masculinidades y feminidades en estas canciones (“Iguales” de Diego Torres y “Soy mia” de Natti Natasha y kany García) respondiendo ¿Qué estereotipos de género identificas? :</p>
+                <p class="changeTextPage37 title-input">¡Genial! Es hora de usar una vez más tus herramientas mentales, reflexiona sobre cómo se presentan las masculinidades y feminidades en estas canciones (“Iguales” de Diego Torres y “Soy mia” de Natti Natasha y kany García) respondiendo ¿Qué estereotipos de género identificas? :</p>
                 <form action="" class="page37-form">
                     <textarea class="page37-txt-1 textFormat"></textarea>
                     <button class="btn-page-37">Listo!</button>
                 </form>
             </div>
             <div class="page38 page-with-drag inactive">
-                <p> Bien hecho, cada vez estas más cerca de alcanzar la bandera! Pon a prueba tus poderes y relaciona cada palabra clave con una imagen según como creas que corresponda</p>
+                <p class="title-drag"> Bien hecho, cada vez estas más cerca de alcanzar la bandera! Pon a prueba tus poderes y relaciona cada palabra clave con una imagen según como creas que corresponda</p>
                 <div class="drag-container">
                     <p class="este-empodera-drop" draggable="true" ondragstart="drag38(event)">Empoderamiento</p>
                     <p class="este-estereotipos-drop" draggable="true" ondragstart="drag38(event)">Romper estereotipos</p>
@@ -1258,39 +1344,39 @@
                 <div class="drop-container">
                     <div>
                         <img src="./assets/images/igualdad.png" alt="">
-                        <div class="igualdad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="igualdad-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                     <div>
                         <img src="./assets/images/libertad.png" alt="">
-                        <div class="libertad-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="libertad-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                     <div>
                         <img src="./assets/images/autoaceptacion.png" alt="">
-                        <div class="auto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="auto-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                     <div>
                         <img src="./assets/images/estereotipos.png" alt="">
-                        <div class="estereotipos-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="estereotipos-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                     <div>
                         <img src="./assets/images/empoderamiento.png" alt="">
-                        <div class="empodera-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="empodera-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                     <div>
                         <img src="./assets/images/respeto.png" alt="">
-                        <div class="respeto-drop" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
+                        <div class="respeto-drop to-here" ondrop="drop38(event)" ondragover="allowDrop38(event)"> Pon la palabra clave aqui</div>    
                     </div>
                 </div>
             </div>
             <div class="page39 page-with-input inactive">
-                <p class="changeTextPage39">¿crees que debe existir una relación igualitaria entre hombres y mujeres? :</p>
+                <p class="changeTextPage39 title-input">¿crees que debe existir una relación igualitaria entre hombres y mujeres? :</p>
                 <form action="" class="page39-form">
                     <textarea class="page39-txt-1 textFormat"></textarea>
                     <button class="btn-page-39">Listo!</button>
                 </form>
             </div>
             <div class="page40 page-with-input inactive">
-                <p class="changeTextPage40">¡Estás a un solo paso de obtener tu bandera! Junta todas tus herramientas y poderes para despertar tu oído musical. Crea una pequeña playlist de canciones que conozcas de diferentes artistas y géneros que desafíen los estereotipos de género:</p>
+                <p class="changeTextPage40 title-input">¡Estás a un solo paso de obtener tu bandera! Junta todas tus herramientas y poderes para despertar tu oído musical. Crea una pequeña playlist de canciones que conozcas de diferentes artistas y géneros que desafíen los estereotipos de género:</p>
                 <form action="" class="page40-form">
                     <textarea class="page40-txt-1 textFormat"></textarea>
                     <button class="btn-page-40">Listo!</button>
@@ -1312,7 +1398,7 @@
                 </div>
             </div>
             <div class="page42 page-with-input inactive">
-                <p class="changeTextPage42">Si usted fuera el protagonista del video, ¿qué haría? </p>
+                <p class="changeTextPage42 title-input">Si usted fuera el protagonista del video, ¿qué haría? </p>
                 <form action="" class="page42-form">
                     <textarea class="page42-txt-1 textFormat"></textarea>
                     <button class="btn-page-42">Listo!</button>
@@ -1328,11 +1414,11 @@
             </div>
             <div class="page44 page-with-canvas inactive">
                 <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
-                <p class="text-ups inactive">Ups! mala elección</p>
+                <p class="text-ups inactive"><span class="crimson">Ups!</span> mala elección</p>
                 <canvas class="canvas44" width="300" height="420"></canvas>
             </div>
-            <div class="page45 inactive">
-                <p> ¡Yahoo! Genial ¿Deseas ganar un nuevo poder? Ubica las siguientes frases en el orden que tu consideres correcto para activar una ruta de atención</p>
+            <div class="page45 page-with-drag inactive">
+                <p class="title-drag"> ¡Yahoo! Genial ¿Deseas ganar un nuevo poder? Ubica las siguientes frases en el orden que tu consideres correcto para activar una ruta de atención</p>
                 <div class="drag-container">
                     <p class="este-primero-drop" draggable="true" ondragstart="drag45(event)">Reconozco que estoy teniendo problemas</p>
                     <p class="este-quinto-drop" draggable="true" ondragstart="drag45(event)">Exijo Atención y justicia</p>
@@ -1370,7 +1456,7 @@
                 </div>
             </div>
             <div class="page49 page-with-input inactive">
-                <p class="changeTextPage49">Responde las siguientes preguntas:</p>
+                <p class="changeTextPage49 title-input">Responde las siguientes preguntas:</p>
                 <form action="" class="page49-form">
                     <p>Si usted fuera el protagonista del video, ¿qué haría? </p>
                     <p>¿Por qué cree que las personas no denuncian la violencia?</p>
@@ -1477,7 +1563,6 @@
                 <div class="reference-scroll">
                     <ul>
                     
-                        
                         <li>Barja Oré, J. J. (2016). Factores que influyen en la violencia basada en género en mujeres de 20 a 40 años atendidas en el consultorio externo de ginecología del Hospital Sergio Bernales-Comas, noviembre diciembre 2015.</li>
                         <li>García-Leiva, P. (2005). Identidad de género: modelos explicativos. Escritos de Psicología-Psychological Writings, (7), 71-81.</li>
                         <li>Gutiérrez Cárdenas, S. C., & Romero Calderón, M. J. (2021). Campaña de comunicación enfocada en la violencia de género y cultura de denuncia en Ecuador: Rompe el Silencio (Bachelor's thesis, Quito).</li>

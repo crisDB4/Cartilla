@@ -119,6 +119,9 @@ const wasViewed = {
     '.nivel3-8': false,
     '.nivel3-9': false,
     '.nivel3-10': false,
+    '.page2': false,
+    '.page4': false,
+    '.page7': false,
 }
 /* Cambiar páginas */
 const actualPage = document.querySelector('.actual-page');
@@ -494,40 +497,46 @@ function page2(){
     }
     
     mario.addEventListener('click', function() {
-        personaje = 'mario';
-        asignaPersonaje(personaje);
-        mario.style.background = 'pink';
-        mario.style.padding = '1px';
-        mario.style.borderRadius = '12px';
-        peach.style.borderRadius = 'none';
-        peach.style.background = '0px';
-        toad.style.borderRadius = '0px';
-        toad.style.background = 'none';
-
-        
+        if (wasViewed[paginas[numPagina]] === false){
+            personaje = 'mario';
+            asignaPersonaje(personaje);
+            mario.style.background = 'pink';
+            mario.style.padding = '1px';
+            mario.style.borderRadius = '12px';
+            peach.style.borderRadius = 'none';
+            peach.style.background = '0px';
+            toad.style.borderRadius = '0px';
+            toad.style.background = 'none';
+        }
+        wasViewed[paginas[numPagina]] = true;
     })
     peach.addEventListener('click', function() {
-        personaje = 'peach';
-        asignaPersonaje(personaje);
-        peach.style.background = 'pink';
-        peach.style.padding = '1px';
-        peach.style.borderRadius = '12px';
-        mario.style.background = 'none';
-        mario.style.borderRadius = '0px';
-        toad.style.borderRadius = '0px';
-        toad.style.background = 'none';
-
+        if (wasViewed[paginas[numPagina]] === false){
+            personaje = 'peach';
+            asignaPersonaje(personaje);
+            peach.style.background = 'pink';
+            peach.style.padding = '1px';
+            peach.style.borderRadius = '12px';
+            mario.style.background = 'none';
+            mario.style.borderRadius = '0px';
+            toad.style.borderRadius = '0px';
+            toad.style.background = 'none';
+        }
+        wasViewed[paginas[numPagina]] = true;
     })
     toad.addEventListener('click', function() {
-        personaje = 'toad';
-        asignaPersonaje(personaje);
-        toad.style.background = 'pink';
-        toad.style.padding = '1px';
-        toad.style.borderRadius = '12px';
-        mario.style.borderRadius = '0px';
-        peach.style.borderRadius = '0px';
-        mario.style.background = 'none';
-        peach.style.background = 'none';
+        if (wasViewed[paginas[numPagina]] === false){
+            personaje = 'toad';
+            asignaPersonaje(personaje);
+            toad.style.background = 'pink';
+            toad.style.padding = '1px';
+            toad.style.borderRadius = '12px';
+            mario.style.borderRadius = '0px';
+            peach.style.borderRadius = '0px';
+            mario.style.background = 'none';
+            peach.style.background = 'none';
+        }
+        wasViewed[paginas[numPagina]] = true;
     })
 }
 
@@ -578,6 +587,7 @@ function page3() {
     }
 
     getAnalysisBtn.addEventListener('click', function (event) {
+        getAnalysisBtn.disabled = true
         event.preventDefault();
         console.log(descriptionInput.value)
         options.body = `[{"id":"1","language":"es","text":"${descriptionInput.value}"}]`;
@@ -615,46 +625,49 @@ function page3() {
 }
 
 function page4() {
-    const page4 = document.querySelector('.page4');
-    for(let i = 0; i < 5; i++) {
-        const bloque = document.createElement("img");
-        bloque.src = "assets/images/bloque.png";
-        bloque.classList.add('bloque');
-        bloque.style.left = (60*i) + "px";
-        page4.append(bloque);
+    if (wasViewed[paginas[numPagina]] === false){
+        const page4 = document.querySelector('.page4');
+        for(let i = 0; i < 5; i++) {
+            const bloque = document.createElement("img");
+            bloque.src = "assets/images/bloque.png";
+            bloque.classList.add('bloque');
+            bloque.style.left = (60*i) + "px";
+            page4.append(bloque);
+        }
+        let nImage = 1
+        let contador = 1
+        let movimiento = 5;
+        clearInterval(animationInterval);
+        personajeAnimacion.style.left = '0px';
+        animationInterval = setInterval(() => {
+            personajeAnimacion.src = `${personajesWalking[personaje]}${nImage}.png`;
+            
+            if (nImage == 3) {
+                contador = 3;
+            } else if (nImage==1) {
+                contador = 1;
+            }
+
+            (contador == 1)? nImage+=1: nImage-=1;
+            
+            personajeAnimacion.style.left = `${movimiento}px`;
+            movimiento+=5;
+            if(movimiento>=130) {
+                movimiento = 130;
+                personajeAnimacion.src = personajes[personaje];
+                clearInterval(animationInterval);
+            }
+            //reset the position to show first sprite after the last one
+        }, 100);
+
+        sexoGeneroBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log(sexoInput.value, generoInput.value)
+                    changeTextSexo.innerText = `Listo! Tus respuestas fueron: \n Sexo: ${sexoInput.value}\nGénero: ${generoInput.value}`;
+                    sexoGeneroForm.remove();
+        })
     }
-    let nImage = 1
-    let contador = 1
-    let movimiento = 5;
-    clearInterval(animationInterval);
-    personajeAnimacion.style.left = '0px';
-    animationInterval = setInterval(() => {
-        personajeAnimacion.src = `${personajesWalking[personaje]}${nImage}.png`;
-        
-        if (nImage == 3) {
-            contador = 3;
-        } else if (nImage==1) {
-            contador = 1;
-        }
-
-        (contador == 1)? nImage+=1: nImage-=1;
-        
-        personajeAnimacion.style.left = `${movimiento}px`;
-        movimiento+=5;
-        if(movimiento>=130) {
-            movimiento = 130;
-            personajeAnimacion.src = personajes[personaje];
-            clearInterval(animationInterval);
-        }
-        //reset the position to show first sprite after the last one
-    }, 100);
-
-    sexoGeneroBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-        console.log(sexoInput.value, generoInput.value)
-                changeTextSexo.innerText = `Listo! Tus respuestas fueron: \n Sexo: ${sexoInput.value}\nGénero: ${generoInput.value}`;
-                sexoGeneroForm.remove();
-    })
+    wasViewed[paginas[numPagina]] = true;
 }
 
 var walkingSprite1 = new Image();
@@ -845,7 +858,7 @@ function drag(ev) {
 
 function drop(ev){
     var data = ev.dataTransfer.getData("text");
-    if(ev.target.classList[0].includes("genero-drop") &&  data.includes("genero-drop") || ev.target.classList[0].includes("sexo-drop") &&  data.includes("sexo-drop")) {
+    if(ev.target.classList[1].includes("genero-drop-class") && ev.target.classList[0].includes("genero-drop") &&  data.includes("genero-drop") || ev.target.classList[1].includes("sexo-drop-class") && ev.target.classList[0].includes("sexo-drop") &&  data.includes("sexo-drop")) {
         ev.target.appendChild(document.querySelector(`.${data}`))
     }
 }
@@ -1671,7 +1684,9 @@ function drag15(ev) {
 
 function drop15(ev){
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.querySelector(`.${data}`))
+    if(ev.target.classList[1].includes("peach-drop-class") || ev.target.classList[1].includes("mario-drop-class")) {
+        ev.target.appendChild(document.querySelector(`.${data}`))
+    }
 }
 
 function page16() {
