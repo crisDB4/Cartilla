@@ -205,6 +205,9 @@
             margin: 8px;
         }
 
+        .indice h2 {
+            margin: 20px;
+        }
         .indice ol {
             padding: 0;
             margin: 8px;
@@ -215,8 +218,19 @@
             grid-template-columns: auto 1fr auto;
         }
         .indice p {
-            margin: 0;
+            font-size: 18px;
+            margin: 4px;
+            color: var(--white);
+            text-shadow: 0px 2px var(--darkerblue);
         }
+        .indice .subtitle {
+            margin-top: 12px;
+        }
+
+        .indice div {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        } 
 
         .page2{
             width: 100%;
@@ -729,7 +743,10 @@
             <div class="indice inactive">
                 <h2>Indice</h2>
                 <ol>
-                    <p>Mundo Diversidad y Diferencia</p>
+                    <div>
+                        <p class="subtitle">Mundo Diversidad y Diferencia</p>
+                        <p class="subtitle"> Pag.</p>
+                    </div>
                     <li>
                         <p>1.</p>
                         <p>Nivel 1. "La batalla interna"</p>
@@ -750,7 +767,7 @@
                         <p>Nivel 4. “Deconstruye tus ideas”</p>
                         <p>20</p>
                     </li>
-                    <p>Mundo Oscuro</p>
+                    <p class="subtitle">Mundo Oscuro</p>
                     <li>
                         <p>5.</p>
                         <p>Nivel 5. “Corre por tu vida”</p>
@@ -766,7 +783,7 @@
                         <p>Nivel 7. “Mundos de oscuridad”</p>
                         <p>41</p>
                     </li>
-                    <p>Mundo No Normativo</p>
+                    <p class="subtitle">Mundo No Normativo</p>
                     <li>
                         <p>8.</p>
                         <p>Nivel 8. “Ideas en evolución”</p>
@@ -781,6 +798,16 @@
                         <p>10.</p>
                         <p>Nivel 10. “Alerta Juvenil”</p>
                         <p>62</p>
+                    </li>
+                    <li>
+                        <p>11.</p>
+                        <p>Glosario de adivinanzas</p>
+                        <p>72</p>
+                    </li>
+                    <li>
+                        <p>12.</p>
+                        <p>Referencias Bibliográficas</p>
+                        <p>73</p>
                     </li>
                 </ol>
             </div>
