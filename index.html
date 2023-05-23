@@ -446,6 +446,12 @@
             transform: scaleX(-1);
             margin: 10px;
         }
+        .move-character {
+            height: 60px;
+            object-fit: cover;
+            transform: scaleX(-1);
+            margin: 10px;
+        }
 
         .page-with-input p {
             margin: 6px;
@@ -783,12 +789,60 @@
             text-align: center;
         }
 
+        .page17 {
+            width: 100%;
+            height: 100%;
+            color: var(--white);
+            display: grid;
+            grid-template-rows: auto 1fr;
+        }
+        .page17 h2 {
+            margin: 24px;
+        }
+
+        .page17 .text-page-17 {
+            margin: 0px 16px;
+            text-align: justify;
+        }
+        .page17 p,
+        .page17 h3,
+        .page17 h4 {
+            margin: 0;
+        }
+
+        .speaker {
+            width: 50px;
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+        }
+
+        .page19 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            color: var(--white);
+            font-size: 20px;
+        }
+        .page19 .text-page-19 {
+            margin: 12px;
+        }
+
+        .fin-niveles {
+            width: 100%;
+            height: 100%;
+            display: grid;
+        }
+
         .reference-scroll {
             margin: 8px;
             width: auto;
             height: 320px;
             overflow: auto;
             font-size: 16px;
+            color: var(--white);
+            text-shadow: 0px 1px var(--darkerblue);
         }
         .reference-scroll ul {
             list-style: none;
@@ -932,8 +986,9 @@
                     <button class="new-analysis">Listo!</button>
                 </form>
             </div>
-            <div class="fin-nivel1 niveles inactive">
+            <div class="fin-nivel1 fin-niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel1 move-character">
             </div>
             <div class="nivel1-2 subniveles inactive">
                 <h1><span class="rojo">Nivel 2.</span><br> “Desafía las etiquetas”</h1>
@@ -981,6 +1036,7 @@
             </div>
             <div class="fin-nivel2 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel2 move-character">
             </div>
             <div class="nivel1-3 subniveles inactive">
                 <h1><span class="rojo">Nivel 3.</span><br> “Rompiendo moldes”</h1>
@@ -1018,6 +1074,7 @@
             </div>
             <div class="fin-nivel3 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel3 move-character">
             </div>
             <div class="nivel1-4 subniveles inactive">
                 <h1><span class="rojo">Nivel 4.</span><br> “Deconstruye tus ideas”</h1>
@@ -1075,6 +1132,7 @@
                     <p>Los estereotipos de género crean expectativas y roles rígidos que limitan a las personas, por lo tanto, los puede presionar a actuar de cierta forma según su género, por ejemplo, se piensa que los hombres son fuertes y agresivos lo que puede llevar a que algunos hombres recurren a la violencia física para demostrar su “masculinidad”, por otro lado, se tiene el estereotipo de que la mujer es débil y sumisa, por lo que algunos hombres pueden pensar que tiene el derecho a controlar a las mujeres y someterlas haciendo uso de distintos tipos de violencia.</p>
                     <h4>¡Desde ahora no verás el mundo igual!</h4>
                 </div>
+                <img src="./assets/images/toad-main.png" alt="" class="speaker">
             </div>
             <div class="page18 page-with-input inactive">
                 <p class="changeTextPage18 title-input">¡Has superado tus límites y estás más cerca de la bandera! Para poder completar tu misión deberás responder las siguientes preguntas:</p>
@@ -1092,6 +1150,7 @@
             </div>
             <div class="fin-nivel4 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel4 move-character">
             </div>
             <div class="nivel2 niveles inactive">
                 <h1>Mundo Oscuro</h1>
@@ -1108,7 +1167,7 @@
                 </div>
             </div>
             <div class="page20 page-with-canvas inactive">
-                <p>¡Para construir tu mundo interior deberás poseer herramientas claves!</p>
+                <p>Violentómetro:</p>
                 <canvas class="canvas6" width="300" height="420"></canvas>
             </div>
             <div class="page21 page-with-video inactive">
@@ -1130,6 +1189,7 @@
             </div>
             <div class="fin-nivel5 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel5 move-character">
             </div>
             <div class="nivel2-6 subniveles inactive">
                 <h1><span class="rojo">Nivel 6.</span><br> “Tipos de oscuridad”</h1>
@@ -1168,6 +1228,7 @@
             </div>
             <div class="fin-nivel6 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel6 move-character">
             </div>
             <div class="nivel2-7 subniveles inactive">
                 <h1><span class="rojo">Nivel 7.</span><br> “Mundos de oscuridad”</h1>
@@ -1200,6 +1261,7 @@
             </div>
             <div class="fin-nivel7 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel7 move-character">
             </div>
             <div class="nivel3 niveles inactive">
                 <h1>Mundo No Normativo</h1>
@@ -1303,6 +1365,7 @@
             </div>
             <div class="fin-nivel8 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel8 move-character">
             </div>
             <div class="nivel3-9 subniveles inactive">
                 <h1><span class="rojo">Nivel 9.</span><br> “Igualdad Pixelada”</h1>
@@ -1384,6 +1447,7 @@
             </div>
             <div class="fin-nivel9 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel9 move-character">
             </div>
             <div class="nivel3-10 subniveles inactive">
                 <h1><span class="rojo">Nivel 10.</span><br> “Alerta Juvenil”</h1>
@@ -1468,6 +1532,7 @@
             </div>
             <div class="fin-nivel10 niveles inactive">
                 <h1>Fin nivel</h1>
+                <img src="" alt="" class="character-animation-fin-nivel10 move-character">
             </div>
             <div class="fin-nivel-final niveles inactive">
                 <h1>Final Final</h1>
@@ -1480,80 +1545,115 @@
                             <br>sin aviso llega a suceder.
                             <br>Cuando alguien hiere con rudeza y afán, 
                             <br>es su presencia un acto de mal.
-                            <br>¿qué es?:____ Agresión
+                            <br>¿qué es?
+                            <br><span class="respuesta-1 rojo inactive">Agresión</span>
+                            <button class="ver-respuesta-1 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>Acecha sin compasión,
                             <br>Provocando temor y perturbación.
                             <br>Su objetivo es causar daño y dolor, 
                             <br>con sus actos llenos de rencor 
-                            <br>¿Quién es? ________ Agresor o victimario
+                            <br>¿Quién es?
+                            <br><span class="respuesta-2 rojo inactive">Agresor o victimario</span>
+                            <button class="ver-respuesta-2 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>No es culpable, solo padece, 
                             <br>el resultado de una acción que entristece.
                             <br>Busca justicia, busca amparo
                             <br>para salir de las manos de un individuo malo.
-                            <br>¿Quién es?________ Víctima
+                            <br>¿Quién es?
+                            <br><span class="respuesta-3 rojo inactive">Víctima</span>
+                            <button class="ver-respuesta-3 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>Lastima el cuerpo y también el alma, 
                             <br>Causando daño con su nefasta calma.
                             <br>Contra esto debemos luchar.
                             <br>Pues en muchos lugares se suele observar.
-                            <br>¿Cuál es la palabra que debes encontrar? ______ Maltrato
+                            <br>¿Cuál es la palabra que debes encontrar?
+                            <br><span class="respuesta-4 rojo inactive">Maltrato</span>
+                            <button class="ver-respuesta-4 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>En manos de expertos, su uso está, 
                             <br>Para medir la violencia sin titubear.
                             <br>Es un instrumento que busca detectar los niveles de agresión en cualquier lugar.
-                            <br>¿Qué es?______ Violentómetro
+                            <br>¿Qué es?
+                            <br><span class="respuesta-5 rojo inactive">Violentómetro</span>
+                            <button class="ver-respuesta-5 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>Soy un secreto que no debe ser guardado,
                             <br>En silencio me ahogo, en un corazón estancado.
                             <br>Cuando mi voz suena alta y clara.
                             <br>La justicia despierta, por mi nombre me llaman
-                            <br>¿Quién soy? ______ Denuncia
+                            <br>¿Quién soy?
+                            <br><span class="respuesta-6 rojo inactive">Denuncia</span>
+                            <button class="ver-respuesta-6 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>En tu cuerpo, soy un sello
                             <br>Tus cromosomas son mi hogar
                             <br>Te defino al nacer
                             <br>Y me convierto en parte de tu identidad
-                            <br>¿Qué soy? ______ Sexo
+                            <br>¿Qué soy?
+                            <br><span class="respuesta-7 rojo inactive">Sexo</span>
+                            <button class="ver-respuesta-7 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>No soy una etiqueta, en mi hay diversidad
                             <br>más allá de lo físico, expreso tu identidad
                             <br>No me define la biología, sino tu autenticidad
-                            <br>¿Quién soy? _____ Género
+                            <br>¿Quién soy?
+                            <br><span class="respuesta-8 rojo inactive">Género</span>
+                            <button class="ver-respuesta-8 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>En esta historia tu eres el protagonista
                             <br>y yo soy tu mejor descubrimiento
                             <br>Mi deseo es que actúes con libertad
                             <br>Y que expreses tu esencia, sin temor al qué dirán
-                            <br>¿Quién soy? ____ Identidad de género
+                            <br>¿Quién soy?
+                            <br><span class="respuesta-9 rojo inactive">Identidad de género</span>
+                            <button class="ver-respuesta-9 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>Me han convertido en un guión
                             <br>Tu eres mi actor
                             <br>Me interpretas como norma
                             <br>Pero de ti depende mi transformación
-                            <br>¿Quién soy? _____ Rol de género
+                            <br>¿Quién soy?
+                            <br><span class="respuesta-10 rojo inactive">Rol de género</span>
+                            <button class="ver-respuesta-10 ver-respuestas">Ver respuesta</button>
                             </li>
                         <li>En tu interior debes buscar,
                             <br>Para la vida comprender y mejorar.
                             <br>Conocerte a ti mismo es la misión,
-                            <br>¿Cuál es la palabra que debes encontrar? _____ Autoconocimiento</li>
+                            <br>¿Cuál es la palabra que debes encontrar?
+                            <br><span class="respuesta-11 rojo inactive">Autoconocimiento</span>
+                            <button class="ver-respuesta-11 ver-respuestas">Ver respuesta</button>
+                        </li>
                         <li>Soy una sombra oscura que hiere sin piedad,
                             <br>Sin razón ni sentido, causo sufrimiento en realidad.
                             <br>No tengo fuerza física, ni brazos para golpear,
-                            <br>Pero destruyo corazones sin cesar. ¿Quién soy? ____ Violencia</li>
+                            <br>Pero destruyo corazones sin cesar. ¿Quién soy?
+                            <br><span class="respuesta-12 rojo inactive">Violencia</span>
+                            <button class="ver-respuesta-12 ver-respuestas">Ver respuesta</button>
+                        </li>
                         <li>En la oscuridad se cuela sin cesar,
                             <br>Te eriza la piel, te hace temblar.
                             <br>Es una emoción que puede paralizar,
-                            <br>Afrontarla te ayudará a triunfar. ¿Qué es? ____ Miedo</li>
+                            <br>Afrontarla te ayudará a triunfar. ¿Qué es?
+                            <br><span class="respuesta-13 rojo inactive">Miedo</span>
+                            <button class="ver-respuesta-13 ver-respuestas">Ver respuesta</button>
+                        </li>
                         <li>Busca equidad y verdad,
                             <br>A todos quiere tratar igual.
                             <br>En tribunales toma acción,
-                            <br>¿Cuál es esta noble misión? ____ Justicia</li>
+                            <br>¿Cuál es esta noble misión?
+                            <br><span class="respuesta-14 rojo inactive">Justicia</span>
+                            <button class="ver-respuesta-14 ver-respuestas">Ver respuesta</button>
+                        </li>
                         <li>Etiquetas y juicios son conocer,
                             <br>Ideas fijas que pueden doler.
                             <br>Nos encasillan sin dejarnos ser,
-                            <br>¿Cuál es la palabra que debemos romper? ____ Estereotipo</li>
+                            <br>¿Cuál es la palabra que debemos romper?
+                            <br><span class="respuesta-15 rojo inactive">Estereotipo</span>
+                            <button class="ver-respuesta-15 ver-respuestas">Ver respuesta</button>
+                        </li>
                     
                     </ul>
                 </div>

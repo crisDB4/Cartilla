@@ -25,6 +25,7 @@ const changeTextSexo= document.querySelector('.changeTextSexo');
 
 let animationInterval;
 
+
 const API = 'https://big-five-personality-insights.p.rapidapi.com/api/big5'
 
 const options = {
@@ -122,6 +123,16 @@ const wasViewed = {
     '.page2': false,
     '.page4': false,
     '.page7': false,
+    '.fin-nivel1':false,
+    '.fin-nivel2':false,
+    '.fin-nivel3':false,
+    '.fin-nivel4':false,
+    '.fin-nivel5':false,
+    '.fin-nivel6':false,
+    '.fin-nivel7':false,
+    '.fin-nivel8':false,
+    '.fin-nivel9':false,
+    '.fin-nivel10':false,
 }
 /* Cambiar páginas */
 const actualPage = document.querySelector('.actual-page');
@@ -313,6 +324,36 @@ function switchPages(operation) {
             break;
         case '.page49':
             page49();
+            break;
+        case '.fin-nivel1':
+            finNivel();
+            break;
+        case '.fin-nivel2':
+            finNivel();
+            break;
+        case '.fin-nivel3':
+            finNivel();
+            break;
+        case '.fin-nivel4':
+            finNivel();
+            break;
+        case '.fin-nivel5':
+            finNivel();
+            break;
+        case '.fin-nivel6':
+            finNivel();
+            break;
+        case '.fin-nivel7':
+            finNivel();
+            break;
+        case '.fin-nivel8':
+            finNivel();
+            break;    
+        case '.fin-nivel9':
+            finNivel();
+            break;
+        case '.fin-nivel10':
+            finNivel();
             break;
     }
 }
@@ -2034,11 +2075,10 @@ function page20() {
     ]
     const textsBeans = [
         new TextsBean(20,310,"Sube por la planta","#000"),
-        new TextsBean(20,240,"violentómetro","#000"),
-        new TextsBean(20,70,"4. Necesitas ayuda de profesionales: Abuso sexual, amenazar de muerte, amenazarte con objetos, herirte hasta casi morir. Casos lamentables, homicidio o feminicidio", "#B10909"),
-        new TextsBean(20,-55,"3. Reacciona, no te dejes destruir: Empujar, pellizcar, arañar, encerrar, y golpear","#FF8900"),
-        new TextsBean(20,-240,"2. Ten cuidado, la violencia aumentara: Descalificar, ridiculizar, usar malas palabras hacia ti, controlar todo lo que haces, destruir artículos ","#FFE700"),
-        new TextsBean(20,-380,"1. Por aquí se empieza: Bromas hirientes, mentir, engañar y chantajear.","#00FF00")
+        new TextsBean(20,150,"1. Por aquí se empieza: Bromas hirientes, mentir, engañar y chantajear.", "#00FF00"),
+        new TextsBean(20,-30,"2. Ten cuidado, la violencia aumentara: Descalificar, ridiculizar, usar malas palabras hacia ti, controlar todo lo que haces, destruir artículos ","#FFE700"),
+        new TextsBean(20,-170,"3. Reacciona, no te dejes destruir: Empujar, pellizcar, arañar, encerrar, y golpear","#FF8900"),
+        new TextsBean(20,-380,"4. Necesitas ayuda de profesionales: Abuso sexual, amenazar de muerte, amenazarte con objetos, herirte hasta casi morir. Casos lamentables, homicidio o feminicidio","#B10909")
     ]
 
     const keys = {
@@ -3796,4 +3836,128 @@ function page49() {
                 changeTextPage49.innerText = `Listo! Tus respuestas fueron: \n${txtPage491.value}`;
                 formPage49.remove();
     })
+}
+
+const btnRespuesta1 = document.querySelector('.ver-respuesta-1');
+const btnRespuesta2 = document.querySelector('.ver-respuesta-2');
+const btnRespuesta3 = document.querySelector('.ver-respuesta-3');
+const btnRespuesta4 = document.querySelector('.ver-respuesta-4');
+const btnRespuesta5 = document.querySelector('.ver-respuesta-5');
+const btnRespuesta6 = document.querySelector('.ver-respuesta-6');
+const btnRespuesta7 = document.querySelector('.ver-respuesta-7');
+const btnRespuesta8 = document.querySelector('.ver-respuesta-8');
+const btnRespuesta9 = document.querySelector('.ver-respuesta-9');
+const btnRespuesta10 = document.querySelector('.ver-respuesta-10');
+const btnRespuesta11 = document.querySelector('.ver-respuesta-11');
+const btnRespuesta12 = document.querySelector('.ver-respuesta-12');
+const btnRespuesta13 = document.querySelector('.ver-respuesta-13');
+const btnRespuesta14 = document.querySelector('.ver-respuesta-14');
+const btnRespuesta15 = document.querySelector('.ver-respuesta-15');
+
+btnRespuesta1.addEventListener('click',() => {
+    document.querySelector('.respuesta-1').classList.remove('inactive');
+    btnRespuesta1.classList.add('inactive');
+})
+btnRespuesta2.addEventListener('click',() => {
+    document.querySelector('.respuesta-2').classList.remove('inactive');
+    btnRespuesta2.classList.add('inactive');
+})
+btnRespuesta3.addEventListener('click',() => {
+    document.querySelector('.respuesta-3').classList.remove('inactive');
+    btnRespuesta3.classList.add('inactive');
+})
+btnRespuesta4.addEventListener('click',() => {
+    document.querySelector('.respuesta-4').classList.remove('inactive');
+    btnRespuesta4.classList.add('inactive');
+})
+btnRespuesta5.addEventListener('click',() => {
+    document.querySelector('.respuesta-5').classList.remove('inactive');
+    btnRespuesta5.classList.add('inactive');
+})
+btnRespuesta6.addEventListener('click',() => {
+    document.querySelector('.respuesta-6').classList.remove('inactive');
+    btnRespuesta6.classList.add('inactive');
+})
+btnRespuesta7.addEventListener('click',() => {
+    document.querySelector('.respuesta-7').classList.remove('inactive');
+    btnRespuesta7.classList.add('inactive');
+})
+btnRespuesta8.addEventListener('click',() => {
+    document.querySelector('.respuesta-8').classList.remove('inactive');
+    btnRespuesta8.classList.add('inactive');
+})
+btnRespuesta9.addEventListener('click',() => {
+    document.querySelector('.respuesta-9').classList.remove('inactive');
+    btnRespuesta9.classList.add('inactive');
+})
+btnRespuesta10.addEventListener('click',() => {
+    document.querySelector('.respuesta-10').classList.remove('inactive');
+    btnRespuesta10.classList.add('inactive');
+})
+btnRespuesta11.addEventListener('click',() => {
+    document.querySelector('.respuesta-11').classList.remove('inactive');
+    btnRespuesta11.classList.add('inactive');
+})
+btnRespuesta12.addEventListener('click',() => {
+    document.querySelector('.respuesta-12').classList.remove('inactive');
+    btnRespuesta12.classList.add('inactive');
+})
+btnRespuesta13.addEventListener('click',() => {
+    document.querySelector('.respuesta-13').classList.remove('inactive');
+    btnRespuesta13.classList.add('inactive');
+})
+btnRespuesta14.addEventListener('click',() => {
+    document.querySelector('.respuesta-14').classList.remove('inactive');
+    btnRespuesta14.classList.add('inactive');
+})
+btnRespuesta15.addEventListener('click',() => {
+    document.querySelector('.respuesta-15').classList.remove('inactive');
+    btnRespuesta15.classList.add('inactive');
+})
+
+function finNivel() {
+    if (wasViewed[paginas[numPagina]] === false){
+        let animationInterval1;
+
+        console.log(`este es: ${paginas[numPagina]}`)
+        const page4 = document.querySelector(paginas[numPagina]);
+        let classPage = paginas[numPagina].substring(paginas[numPagina].indexOf(".")+1)
+        const personajeAnimacion1 = document.querySelector(`.character-animation-${classPage}`);
+        for(let i = 0; i < 5; i++) {
+            const bloque = document.createElement("img");
+            bloque.src = "assets/images/bloque.png";
+            bloque.classList.add(`bloque-${classPage}`);
+            bloque.classList.add('bloque');
+            bloque.style.left = (60*i) + "px";
+            page4.append(bloque);
+        }
+        let nImage = 1
+        let contador = 1
+        let movimiento = 5;
+        clearInterval(animationInterval1);
+        personajeAnimacion1.style.position = 'absolute';
+        personajeAnimacion1.style.left = '0px';
+        personajeAnimacion1.style.bottom = '50px';
+        animationInterval1 = setInterval(() => {
+            personajeAnimacion1.src = `${personajesWalking[personaje]}${nImage}.png`;
+            
+            if (nImage == 3) {
+                contador = 3;
+            } else if (nImage==1) {
+                contador = 1;
+            }
+
+            (contador == 1)? nImage+=1: nImage-=1;
+            
+            personajeAnimacion1.style.left = `${movimiento}px`;
+            movimiento+=5;
+            if(movimiento>=130) {
+                movimiento = 130;
+                personajeAnimacion1.src = personajes[personaje];
+                clearInterval(animationInterval1);
+            }
+            //reset the position to show first sprite after the last one
+        }, 100);
+    }
+    wasViewed[paginas[numPagina]] = true;
 }
